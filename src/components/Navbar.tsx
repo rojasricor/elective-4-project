@@ -1,4 +1,4 @@
-function Navbar() {
+function Navbar(): React.ReactNode {
   return <div>Navbar</div>;
 }
 

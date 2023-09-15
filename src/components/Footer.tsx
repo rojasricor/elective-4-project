@@ -1,4 +1,4 @@
-function Footer() {
+function Footer(): React.ReactNode {
   return <div>Footer</div>;
 }
 
