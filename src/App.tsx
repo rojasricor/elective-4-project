@@ -1,14 +1,17 @@
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './components/AppRoutes';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 
-function App() {
+function App(): React.ReactNode {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      {/* <Home />
-      <Login /> */}
+
+      <AppRoutes />
+
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
