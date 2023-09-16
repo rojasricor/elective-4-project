@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom'
-import AboutListMobile from './AboutListMobile'
-import { ArrowUpIcon, ArrowDownIcon, CloseIcon, LogInIcon } from './Icons'
+import { Link } from 'react-router-dom';
+import AboutListMobile from './AboutListMobile';
+import { ArrowUpIcon, ArrowDownIcon, CloseIcon, LogInIcon } from './Icons';
 
 interface MobileMenuProps {
-  isSubMenuMobileOpen: boolean
-  handleMenuMobileOpen: () => void
-  handleSubMenuMobileOpen: () => void
-  handleResetMenus: () => void
+  isSubMenuMobileOpen: boolean;
+  handleMenuMobileOpen: () => void;
+  handleSubMenuMobileOpen: () => void;
+  handleResetMenus: () => void;
 }
 
-function MobileMenu ({
+function MobileMenu({
   isSubMenuMobileOpen,
   handleMenuMobileOpen,
   handleSubMenuMobileOpen,
-  handleResetMenus
+  handleResetMenus,
 }: MobileMenuProps): React.ReactNode {
   return (
     <div className="lg:hidden" role="dialog" aria-modal="true">
@@ -63,7 +63,9 @@ function MobileMenu ({
                   Nosotros
                   {isSubMenuMobileOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
                 </button>
-                {isSubMenuMobileOpen && <AboutListMobile handleResetMenus={handleResetMenus} />}
+                {isSubMenuMobileOpen && (
+                  <AboutListMobile handleResetMenus={handleResetMenus} />
+                )}
               </div>
             </div>
             <div className="py-6">
@@ -87,7 +89,7 @@ function MobileMenu ({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default MobileMenu
+export default MobileMenu;

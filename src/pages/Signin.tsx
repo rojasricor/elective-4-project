@@ -1,7 +1,7 @@
-import { Helmet } from 'react-helmet'
-import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
-function Signin (): React.ReactNode {
+function Signin(): React.ReactNode {
   return (
     <>
       <Helmet>
@@ -88,7 +88,7 @@ function Signin (): React.ReactNode {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Signin
+export default Signin;

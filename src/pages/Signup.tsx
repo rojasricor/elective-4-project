@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
 
-function Signup (): React.ReactNode {
+function Signup(): React.ReactNode {
   return (
     <>
       <Helmet>
@@ -9,7 +9,7 @@ function Signup (): React.ReactNode {
 
       <div>Signup</div>
     </>
-  )
+  );
 }
 
-export default Signup
+export default Signup;

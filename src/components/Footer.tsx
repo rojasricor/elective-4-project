@@ -1,5 +1,5 @@
-function Footer (): React.ReactNode {
-  return <div>Footer</div>
+function Footer(): React.ReactNode {
+  return <div>Footer</div>;
 }
 
-export default Footer
+export default Footer;

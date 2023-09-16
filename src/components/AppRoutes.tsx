@@ -1,12 +1,12 @@
-import { Route, Routes } from 'react-router-dom'
-import { About } from '../pages'
-import Contacts from '../pages/Contacts'
-import Home from '../pages/Home'
-import Signin from '../pages/Signin'
-import PageNotFound from '../pages/PageNotFound'
-import Signup from '../pages/Signup'
+import { Route, Routes } from 'react-router-dom';
+import { About } from '../pages';
+import Contacts from '../pages/Contacts';
+import Home from '../pages/Home';
+import Signin from '../pages/Signin';
+import PageNotFound from '../pages/PageNotFound';
+import Signup from '../pages/Signup';
 
-function AppRoutes (): React.ReactNode {
+function AppRoutes(): React.ReactNode {
   return (
     <Routes>
       <Route index element={<Home />} />
@@ -23,7 +23,7 @@ function AppRoutes (): React.ReactNode {
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
-  )
+  );
 }
 
-export default AppRoutes
+export default AppRoutes;

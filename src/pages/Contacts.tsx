@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
 
-function Contacts (): React.ReactNode {
+function Contacts(): React.ReactNode {
   return (
     <>
       <Helmet>
@@ -9,7 +9,7 @@ function Contacts (): React.ReactNode {
 
       <div>Contacts</div>
     </>
-  )
+  );
 }
 
-export default Contacts
+export default Contacts;

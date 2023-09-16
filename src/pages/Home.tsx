@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
 
-function Home (): React.ReactNode {
+function Home(): React.ReactNode {
   return (
     <>
       <Helmet>
@@ -9,7 +9,7 @@ function Home (): React.ReactNode {
 
       <div>Home</div>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
