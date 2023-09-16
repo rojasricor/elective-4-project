@@ -1,5 +1,4 @@
-import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet'
 
 function Signup(): React.ReactNode {
   return (
@@ -129,7 +128,7 @@ function Signup(): React.ReactNode {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Signup;
+export default Signup
