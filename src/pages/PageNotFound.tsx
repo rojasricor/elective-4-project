@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet'
 
-function PageNotFound(): React.ReactNode {
+function PageNotFound (): React.ReactNode {
   return (
     <>
       <Helmet>
@@ -30,7 +30,7 @@ function PageNotFound(): React.ReactNode {
         </div>
       </main>
     </>
-  );
+  )
 }
 
-export default PageNotFound;
+export default PageNotFound
