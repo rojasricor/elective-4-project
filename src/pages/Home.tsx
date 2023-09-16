@@ -74,7 +74,7 @@ function Home(): React.ReactNode {
         </div>
       </section>
 
-      <div className="bg-white sm:py-32">
+      <div className="bg-white py-7 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9 mb-5">
             <p>Consejos Financieros...</p>
@@ -158,7 +158,7 @@ function Home(): React.ReactNode {
         </div>
       </div>
 
-      <div className="bg-white pb-24 sm:pb-32">
+      <div className="bg-white py-7 pb-24 sm:pb-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9 mb-5">
             <p>Videos...</p>
