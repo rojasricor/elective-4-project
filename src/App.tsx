@@ -1,7 +1,7 @@
-import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './components/AppRoutes';
-import Footer from './components/Footer';
-import NavBar from './components/NavBar';
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from './components/AppRoutes'
+import Footer from './components/Footer/Footer'
+import NavBar from './components/NavBar'
 
 function App(): React.ReactNode {
   return (
@@ -12,7 +12,7 @@ function App(): React.ReactNode {
 
       <Footer />
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
