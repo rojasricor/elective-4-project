@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -7,34 +7,34 @@ import {
   MenuIcon,
   MisionIcon,
   QuestionIcon,
-  VisionIcon,
-} from './Icons';
+  VisionIcon
+} from './Icons'
 
-import ItemListDropDown from './ItemListDropDown';
-import MobileMenu from './MobileMenu';
+import ItemListDropDown from './ItemListDropDown'
+import MobileMenu from './MobileMenu'
 
-function NavBar(): React.ReactNode {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
-  const [isSubMenuMobileOpen, setIsSubMenuMobileOpen] = useState(false);
+function NavBar (): React.ReactNode {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false)
+  const [isSubMenuMobileOpen, setIsSubMenuMobileOpen] = useState(false)
 
   const handleMenuOpen = (): void => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   const handleMenuMobileOpen = (): void => {
-    setIsMenuMobileOpen(!isMenuMobileOpen);
-  };
+    setIsMenuMobileOpen(!isMenuMobileOpen)
+  }
 
   const handleSubMenuMobileOpen = (): void => {
-    setIsSubMenuMobileOpen(!isSubMenuMobileOpen);
-  };
+    setIsSubMenuMobileOpen(!isSubMenuMobileOpen)
+  }
 
   const handleResetMenus = (): void => {
-    setIsMenuOpen(false);
-    setIsMenuMobileOpen(false);
-    setIsSubMenuMobileOpen(false);
-  };
+    setIsMenuOpen(false)
+    setIsMenuMobileOpen(false)
+    setIsSubMenuMobileOpen(false)
+  }
 
   return (
     <header className="bg-white border border-[#0f172a1a]">
@@ -143,7 +143,7 @@ function NavBar(): React.ReactNode {
         />
       )}
     </header>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar
