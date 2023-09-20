@@ -1,0 +1,10 @@
+
+> api@0.0.1 format
+> prettier --write "src/**/*.ts" "test/**/*.ts"
+
+src/app.controller.spec.ts 231ms
+src/app.controller.ts 10ms
+src/app.module.ts 6ms
+src/app.service.ts 4ms
+src/main.ts 7ms
+test/app.e2e-spec.ts 10ms
