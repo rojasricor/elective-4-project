@@ -1,90 +1,36 @@
-# Elective-4-project
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Descripción
+## Getting Started
 
-Documentación del proyecto de electiva 4.
+First, run the development server:
 
-## Instalación
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Para instalar el proyecto de electiva, use NPM y siga estos pasos:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1. Clone el repositorio:
-2. Ejecute:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-   ```bash
-   npm i
-   ```
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Scripts
+## Learn More
 
-El proyecto incluye los siguientes scripts definidos en el archivo package.json:
+To learn more about Next.js, take a look at the following resources:
 
-- **`build`**: Este script se utiliza para compilar la aplicación para producción utilizando Turbo. Para construir el proyecto, ejecute:
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-  ```bash
-  npm run build
-  ```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-- **`dev`**: Este script inicia un servidor de desarrollo para el proyecto. Se recargará automáticamente cada vez que realice cambios en el código. Para ejecutar el servidor de desarrollo, utilice:
+## Deploy on Vercel
 
-  ```bash
-  npm run dev
-  ```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- **`start`**: Este script inicia la aplicación en un entorno de producción. La aplicación se ejecutará utilizando el archivo index.js ubicado en la carpeta apps/api/dist. Para iniciar la aplicación en producción, utilice:
-
-  ```bash
-  npm start
-  ```
-
-- **`Format`**: Formatea los archivos TypeScript y SCSS en el directorio src usando Prettier.
-
-  ```bash
-  npm run format
-  ```
-
-## Notas para desarrolladores:
-
-1. Workspace en package.json ruta apps/\*
-
-2. apps/client = frontend
-
-3. apps/api = backend
-
-4. Para instalar, eliminar o actualizar paquetes para un workspace en específico ejecute:
-
-   ```bash
-   npm install @paquete --workspace name
-   ```
-
-   ```bash
-   npm remove @paquete --workspace name
-   ```
-
-   **Ejemplo:**
-
-   ```bash
-   npm install @jwt --workspace api
-   ```
-
-5. Proxy server en el archivo vite.config.ts en apps/client para conexión con la api en el mismo dominio
-
-6. El backend sirve los archivos estáticos del frontend, al ejecutar **npm start** se ejecuta el backend y el sirve los archivos estáticos.
-
-## Apps
-
-- [Elective-4-project Frontend.](apps/client/README.md)
-
-- [Elective-4-project RestApi.](apps/api/README.md)
-
-## Autores
-
-- Ricardo Andrés Rojas Rico
-- Raul Andrés Quimbaya
-- José Manuel Mendoza Vásquez
-
-## Dependencias de desarrollo
-
-El proyecto utiliza dependencias de desarrollo para la construcción y las pruebas. Consulte los respectivos archivos `package.json` para obtener la lista completa de dependencias de desarrollo.
-
--Turbo
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
