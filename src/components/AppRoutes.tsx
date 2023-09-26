@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Home from "../pages/Home";
-import Signin from "../pages/signin";
+import Signin from "../app/signin/page";
 import PageNotFound from "../pages/PagesNotFound";
-import Signup from "../pages/signup";
+import Signup from "../app/signup/page";
 
 function AppRoutes(): React.ReactNode {
   return (

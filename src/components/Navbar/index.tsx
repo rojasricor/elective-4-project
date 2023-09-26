@@ -20,6 +20,9 @@ function NavBar(): React.ReactNode {
   const [isSubMenuMobileOpen, setIsSubMenuMobileOpen] = useState(false);
 
   const handleMenuOpen = (): void => {
+    console.log({isMenuOpen});
+    console.log('handleMenuOpen');
+    
     setIsMenuOpen(!isMenuOpen);
   };
 
@@ -42,7 +45,7 @@ function NavBar(): React.ReactNode {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <div className="flex lg:flex-1">
           <Link
-            href="/home"
+            href="/"
             className="-m-1.5 p-1.5"
             onClick={handleResetMenus}
           >
@@ -55,7 +58,7 @@ function NavBar(): React.ReactNode {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           <Link
-            href="/home"
+            href="/"
             className="text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
             onClick={handleResetMenus}
           >

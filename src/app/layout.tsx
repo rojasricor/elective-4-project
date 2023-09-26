@@ -1,7 +1,6 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer/Footer";
-import AppRoutes from "./components/AppRoutes";
-import Home from "./page";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer/Footer";
+import "./Global.css"
 
 export const metadata = {
   title: "Educacion Finaciera | Home",
@@ -19,7 +18,6 @@ export default function RootLayout({
       <body>
         <Navbar />
 
-        <AppRoutes />
         {children}
       </body>
       <Footer />
