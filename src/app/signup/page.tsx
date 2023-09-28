@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 function Signup(): React.ReactNode {
   return (
@@ -128,7 +128,7 @@ function Signup(): React.ReactNode {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Signup;
+export default Signup

@@ -1,12 +1,12 @@
-import Link from "next/link";
-import AboutListMobile from "./AboutListMobile";
-import { ArrowUpIcon, ArrowDownIcon, CloseIcon, LogInIcon } from "./icons";
+import Link from 'next/link'
+import AboutListMobile from './AboutListMobile'
+import { ArrowUpIcon, ArrowDownIcon, CloseIcon, LogInIcon } from './icons'
 
 interface MobileMenuProps {
-  isSubMenuMobileOpen: boolean;
-  handleMenuMobileOpen: () => void;
-  handleSubMenuMobileOpen: () => void;
-  handleResetMenus: () => void;
+  isSubMenuMobileOpen: boolean
+  handleMenuMobileOpen: () => void
+  handleSubMenuMobileOpen: () => void
+  handleResetMenus: () => void
 }
 
 function MobileMenu({
@@ -89,7 +89,7 @@ function MobileMenu({
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default MobileMenu;
+export default MobileMenu

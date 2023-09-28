@@ -1,4 +1,4 @@
-import  Link  from 'next/link'
+import Link from 'next/link'
 
 interface ItemListDropDownProps {
   title: string
@@ -7,11 +7,11 @@ interface ItemListDropDownProps {
   handleResetMenus: () => void
 }
 
-function ItemListDropDown ({
+function ItemListDropDown({
   title,
   description,
   Icon,
-  handleResetMenus
+  handleResetMenus,
 }: ItemListDropDownProps): React.ReactNode {
   return (
     <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-base leading-6 hover:bg-gray-50">

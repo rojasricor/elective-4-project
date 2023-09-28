@@ -1,8 +1,8 @@
-import Head from "next/head";
-import AboutUs from "./svgs/AboutUs.svg";
-import Mision from "./svgs/Mision.svg";
-import Vision from "./svgs/Vision.svg";
-import ArrowRight from "./Icons/ArrowRight";
+import Head from 'next/head'
+import AboutUs from './svgs/AboutUs.svg'
+import Mision from './svgs/Mision.svg'
+import Vision from './svgs/Vision.svg'
+import ArrowRight from './Icons/ArrowRight'
 
 function About(): React.ReactNode {
   return (
@@ -147,7 +147,7 @@ function About(): React.ReactNode {
         </div>
       </main>
     </>
-  );
+  )
 }
 
-export default About;
+export default About

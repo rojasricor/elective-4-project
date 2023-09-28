@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head'
+import Link from 'next/link'
 
 function Signin(): React.ReactNode {
   return (
@@ -88,7 +88,7 @@ function Signin(): React.ReactNode {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Signin;
+export default Signin

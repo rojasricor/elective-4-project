@@ -1,11 +1,11 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 function Home(): React.ReactNode {
   const stats = [
-    { id: 1, name: "Transacciones cada 24 horas", value: "44 millones" },
-    { id: 2, name: "Activos bajo tenencia", value: "$119 trillones" },
-    { id: 3, name: "Nuevos usuarios anualmente", value: "46,000" },
-  ];
+    { id: 1, name: 'Transacciones cada 24 horas', value: '44 millones' },
+    { id: 2, name: 'Activos bajo tenencia', value: '$119 trillones' },
+    { id: 3, name: 'Nuevos usuarios anualmente', value: '46,000' },
+  ]
 
   return (
     <>
@@ -218,7 +218,7 @@ function Home(): React.ReactNode {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

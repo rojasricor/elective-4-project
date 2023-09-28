@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier ./src/ --write"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@types/node": "20.7.0",
     "@types/react": "18.2.23",
+    "prettier": "^3.0.3",
     "typescript": "5.2.2"
   }
 }

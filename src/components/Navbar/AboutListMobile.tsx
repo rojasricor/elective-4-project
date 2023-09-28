@@ -1,7 +1,7 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 interface AboutListMobileProps {
-  handleResetMenus: () => void;
+  handleResetMenus: () => void
 }
 
 function AboutListMobile({
@@ -31,7 +31,7 @@ function AboutListMobile({
         Visión
       </Link>
     </div>
-  );
+  )
 }
 
-export default AboutListMobile;
+export default AboutListMobile

@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 function Contact(): React.ReactNode {
   return (
@@ -151,7 +151,7 @@ function Contact(): React.ReactNode {
         </form>
       </div>
     </>
-  );
+  )
 }
 
-export default Contact;
+export default Contact

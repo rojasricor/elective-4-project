@@ -17,7 +17,7 @@ export default function Import_icon() {
   return (
     <div className="p-2 px-5">
       <h2 className="font-bold text-yellow-700">Siguenos en: </h2>
-      <div className='flex'>
+      <div className="flex">
         <FontAwesomeIcon
           icon={Facebook}
           className="mr-4 
