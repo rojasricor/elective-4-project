@@ -1,4 +1,11 @@
+import Footer_iten from './Footer_iten'
+
 function Footer(): React.ReactNode {
-  return <div>Footer</div>;
+  return (
+    <footer className="bg-gray-900 text-black">
+      <Footer_iten />
+    </footer>
+  )
 }
-export default Footer;
+
+export default Footer

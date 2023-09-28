@@ -1,5 +1,6 @@
 "use client";
-import Link from "next/link";
+import { useState } from 'react'
+import Link  from 'next/link'
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -7,48 +8,40 @@ import {
   MenuIcon,
   MisionIcon,
   QuestionIcon,
-  VisionIcon,
-} from "./icons";
+  VisionIcon
+} from './icons'
 
-import ItemListDropDown from "./ItemListDropDown";
-import MobileMenu from "./MobileMenu.";
-import { useState } from "react";
+import ItemListDropDown from './ItemListDropDown'
+import MobileMenu from './MobileMenu.'
 
-function NavBar(): React.ReactNode {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
-  const [isSubMenuMobileOpen, setIsSubMenuMobileOpen] = useState(false);
+function NavBar (): React.ReactNode {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false)
+  const [isSubMenuMobileOpen, setIsSubMenuMobileOpen] = useState(false)
 
   const handleMenuOpen = (): void => {
-    console.log({isMenuOpen});
-    console.log('handleMenuOpen');
-    
-    setIsMenuOpen(!isMenuOpen);
-  };
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   const handleMenuMobileOpen = (): void => {
-    setIsMenuMobileOpen(!isMenuMobileOpen);
-  };
+    setIsMenuMobileOpen(!isMenuMobileOpen)
+  }
 
   const handleSubMenuMobileOpen = (): void => {
-    setIsSubMenuMobileOpen(!isSubMenuMobileOpen);
-  };
+    setIsSubMenuMobileOpen(!isSubMenuMobileOpen)
+  }
 
   const handleResetMenus = (): void => {
-    setIsMenuOpen(false);
-    setIsMenuMobileOpen(false);
-    setIsSubMenuMobileOpen(false);
-  };
+    setIsMenuOpen(false)
+    setIsMenuMobileOpen(false)
+    setIsSubMenuMobileOpen(false)
+  }
 
   return (
     <header className="bg-white border border-[#0f172a1a]">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <div className="flex lg:flex-1">
-          <Link
-            href="/"
-            className="-m-1.5 p-1.5"
-            onClick={handleResetMenus}
-          >
+          <Link href="/home" className="-m-1.5 p-1.5" onClick={handleResetMenus}>
             <img
               className="h-8 w-auto"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
@@ -58,7 +51,7 @@ function NavBar(): React.ReactNode {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           <Link
-            href="/"
+            href="/home"
             className="text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
             onClick={handleResetMenus}
           >
@@ -86,8 +79,8 @@ function NavBar(): React.ReactNode {
             <div
               className={`${
                 isMenuOpen
-                  ? "transition ease-out duration-200 opacity-100 translate-y-0"
-                  : "transition ease-in duration-150 opacity-0 translate-y-1"
+                  ? 'transition ease-out duration-200 opacity-100 translate-y-0'
+                  : 'transition ease-in duration-150 opacity-0 translate-y-1'
               }`}
             >
               {isMenuOpen && (
@@ -124,7 +117,7 @@ function NavBar(): React.ReactNode {
             onClick={handleResetMenus}
           >
             Registrarse
-          </Link>
+          </Link> 
           <Link
             href="/signin"
             className="flex justify-center items-center gap-2 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
@@ -151,7 +144,7 @@ function NavBar(): React.ReactNode {
         />
       )}
     </header>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar

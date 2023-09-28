@@ -1,17 +1,17 @@
-import Link from "next/link";
+import  Link  from 'next/link'
 
 interface ItemListDropDownProps {
-  title: string;
-  description: string;
-  Icon: React.FC;
-  handleResetMenus: () => void;
+  title: string
+  description: string
+  Icon: React.FC
+  handleResetMenus: () => void
 }
 
-function ItemListDropDown({
+function ItemListDropDown ({
   title,
   description,
   Icon,
-  handleResetMenus,
+  handleResetMenus
 }: ItemListDropDownProps): React.ReactNode {
   return (
     <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-base leading-6 hover:bg-gray-50">
@@ -30,7 +30,7 @@ function ItemListDropDown({
         <p className="mt-1 text-gray-600">{description}</p>
       </div>
     </div>
-  );
+  )
 }
 
-export default ItemListDropDown;
+export default ItemListDropDown
