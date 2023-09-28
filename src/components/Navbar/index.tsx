@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -42,12 +43,14 @@ function NavBar(): React.ReactNode {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <div className="flex lg:flex-1">
           <Link
-            href="/home"
+            href="/"
             className="-m-1.5 p-1.5"
             onClick={handleResetMenus}
           >
-            <img
-              className="h-8 w-auto"
+            <Image
+              width={32}
+              height={32}
+              className="w-8 h-8"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
               alt=""
             />
@@ -55,7 +58,7 @@ function NavBar(): React.ReactNode {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           <Link
-            href="/home"
+            href="/"
             className="text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
             onClick={handleResetMenus}
           >

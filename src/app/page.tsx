@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 
 function Home(): React.ReactNode {
   const stats = [
@@ -37,8 +38,10 @@ function Home(): React.ReactNode {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
         <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
-          <img
-            className="mx-auto h-12"
+          <Image
+            width={48}
+            height={48}
+            className="mx-auto w-auto h-11"
             src="https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg"
             alt=""
           />
@@ -51,8 +54,10 @@ function Home(): React.ReactNode {
               </p>
             </blockquote>
             <figcaption className="mt-10">
-              <img
-                className="mx-auto h-10 w-10 rounded-full"
+              <Image
+                className="mx-auto rounded-full"
+                width={40}
+                height={40}
                 src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 alt=""
               />

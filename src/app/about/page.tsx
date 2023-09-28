@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import AboutUs from './svgs/AboutUs.svg'
 import Mision from './svgs/Mision.svg'
 import Vision from './svgs/Vision.svg'
@@ -14,7 +15,7 @@ function About(): React.ReactNode {
       <main className="px-40 py-20">
         <section className="flex justify-center items-center gap-16">
           <div className="w-96">
-            <img src={AboutUs} alt="" className="w-full" />
+            <Image width={400} height={400} src={AboutUs} alt="" />
           </div>
           <div className="flex flex-col gap-3 w-5/12">
             <h1 className="font-bold text-4xl text-[#79ad34]">
@@ -51,12 +52,12 @@ function About(): React.ReactNode {
             </button>
           </div>
           <div className="w-96">
-            <img src={Mision} alt="" className="w-full" />
+            <Image width={400} height={400} src={Mision} alt="" />
           </div>
         </section>
         <section className="flex justify-center items-center gap-16 mt-32">
           <div className="w-96">
-            <img src={Vision} alt="" className="w-full" />
+            <Image width={400} height={400} src={Vision} alt="" />
           </div>
           <div className="flex flex-col gap-3 w-5/12">
             <h1 className="font-bold text-4xl text-[#79ad34]">Visión</h1>
@@ -93,8 +94,10 @@ function About(): React.ReactNode {
             >
               <li>
                 <div className="flex items-center gap-x-6">
-                  <img
-                    className="h-16 w-16 rounded-full"
+                  <Image
+                    width={64}
+                    height={64}
+                    className="rounded-full"
                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     alt=""
                   />
@@ -110,8 +113,10 @@ function About(): React.ReactNode {
               </li>
               <li>
                 <div className="flex items-center gap-x-6">
-                  <img
-                    className="h-16 w-16 rounded-full"
+                  <Image
+                    width={64}
+                    height={64}
+                    className="rounded-full"
                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     alt=""
                   />
@@ -127,8 +132,10 @@ function About(): React.ReactNode {
               </li>
               <li>
                 <div className="flex items-center gap-x-6">
-                  <img
-                    className="h-16 w-16 rounded-full"
+                  <Image
+                    width={64}
+                    height={64}
+                    className="rounded-full"
                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     alt=""
                   />
