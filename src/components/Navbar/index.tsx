@@ -9,13 +9,13 @@ import {
   MenuIcon,
   MisionIcon,
   QuestionIcon,
-  VisionIcon,
+  VisionIcon
 } from './icons'
 
 import ItemListDropDown from './ItemListDropDown'
 import MobileMenu from './MobileMenu.'
 
-function NavBar(): React.ReactNode {
+function NavBar (): React.ReactNode {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false)
   const [isSubMenuMobileOpen, setIsSubMenuMobileOpen] = useState(false)
@@ -39,7 +39,7 @@ function NavBar(): React.ReactNode {
   }
 
   return (
-    <header className="bg-white border border-[#0f172a1a]">
+    <header className="bg-white border border-[#0f172a1a] fixed top-0 w-full z-10">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <div className="flex lg:flex-1">
           <Link
@@ -97,18 +97,21 @@ function NavBar(): React.ReactNode {
                       title="¿Quienes somos?"
                       description="Lorem ipsum dolor sit amet consectetur."
                       Icon={QuestionIcon}
+                      idSection='quienesSomos'
                       handleResetMenus={handleResetMenus}
                     />
                     <ItemListDropDown
                       title="Misión"
                       description="Lorem ipsum dolor sit amet consectetur."
                       Icon={MisionIcon}
+                      idSection='mision'
                       handleResetMenus={handleResetMenus}
                     />
                     <ItemListDropDown
                       title="Visión"
                       description="Lorem ipsum dolor sit amet consectetur."
                       Icon={VisionIcon}
+                      idSection='vision'
                       handleResetMenus={handleResetMenus}
                     />
                   </div>

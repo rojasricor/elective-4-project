@@ -1,24 +1,33 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer/Footer'
+import { Oswald } from 'next/font/google'
 import './Global.css'
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 export const metadata = {
   title: 'Educacion Finaciera | Home',
   description: 'Educational for Finances',
-  keywords: 'Educacion, finanzas, enseñanzas, ahorro,',
+  keywords: 'Educacion, finanzas, enseñanzas, ahorro,'
 }
 
-export default function RootLayout({
-  children,
+export default function RootLayout ({
+  children
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html>
+    <html className={oswald.className}>
       <body>
         <Navbar />
 
-        {children}
+        <div className='py-20'>
+          {children}
+        </div>
+
         <Footer />
       </body>
     </html>

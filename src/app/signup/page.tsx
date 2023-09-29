@@ -3,7 +3,7 @@ import Image from 'next/image'
 import SignUpGif from './gifs/signUp.gif'
 import Link from 'next/link'
 
-function Signup(): React.ReactNode {
+function Signup (): React.ReactNode {
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ function Signup(): React.ReactNode {
         <div className="mt-8 flex gap-10 sm:mx-auto sm:w-full sm:max-w-xl md:max-w-6xl">
           <div className='hidden md:block'>
             <div>
-              <Image 
+              <Image
                 width={500}
                 height={500}
                 src={SignUpGif}
@@ -135,7 +135,7 @@ function Signup(): React.ReactNode {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="sm:col-span-3">
                     <label
                       htmlFor="password1"
@@ -152,7 +152,7 @@ function Signup(): React.ReactNode {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="sm:col-span-3">
                     <label
                       htmlFor="password2"

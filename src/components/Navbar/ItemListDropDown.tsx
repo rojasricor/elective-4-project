@@ -4,14 +4,16 @@ interface ItemListDropDownProps {
   title: string
   description: string
   Icon: React.FC
+  idSection: string
   handleResetMenus: () => void
 }
 
-function ItemListDropDown({
+function ItemListDropDown ({
   title,
   description,
   Icon,
-  handleResetMenus,
+  idSection,
+  handleResetMenus
 }: ItemListDropDownProps): React.ReactNode {
   return (
     <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-base leading-6 hover:bg-gray-50">
@@ -20,7 +22,7 @@ function ItemListDropDown({
       </div>
       <div className="flex-auto">
         <Link
-          href="/about"
+          href={`/about/#${idSection}`}
           className="block font-semibold text-gray-900 hover:text-[#79ad34]"
           onClick={handleResetMenus}
         >
