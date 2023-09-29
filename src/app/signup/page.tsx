@@ -128,7 +128,7 @@ function Signup (): React.ReactNode {
                     </label>
                     <div className="mt-2">
                       <input
-                        type="number"
+                        type="tel"
                         name="celular"
                         id="celular"
                         className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"

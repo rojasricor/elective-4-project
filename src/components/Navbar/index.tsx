@@ -9,7 +9,8 @@ import {
   MenuIcon,
   MisionIcon,
   QuestionIcon,
-  VisionIcon
+  VisionIcon,
+  TeamIcon
 } from './icons'
 
 import ItemListDropDown from './ItemListDropDown'
@@ -112,6 +113,13 @@ function NavBar (): React.ReactNode {
                       description="Lorem ipsum dolor sit amet consectetur."
                       Icon={VisionIcon}
                       idSection='vision'
+                      handleResetMenus={handleResetMenus}
+                    />
+                    <ItemListDropDown
+                      title="Nuestro Equipo"
+                      description="Lorem ipsum dolor sit amet consectetur."
+                      Icon={TeamIcon}
+                      idSection='team'
                       handleResetMenus={handleResetMenus}
                     />
                   </div>
