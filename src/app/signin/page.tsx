@@ -31,10 +31,7 @@ export default function Signin() {
             Iniciar sesion en Finanzas Educativas
           </h2>
         </div>
-
-        {/* <!-- component --> */}
         <div className="flex justify-center items-center h-screen">
-          {/* <!-- Left: Image --> */}
           <div className="w-1/2 h-screen hidden lg:block">
             <Image
               width={500}
@@ -46,7 +43,6 @@ export default function Signin() {
           </div>
           {/* <!-- Right: Login Form --> */}
         <div className="border-b border-gray-900/10 pb-12">
-          <div className="sm:col-span-3">
             <form action="#" method="POST">
               {/* <!-- Username Input --> */}
               <div className="mb-4">
@@ -109,7 +105,8 @@ export default function Signin() {
                       />
                       Facebook</button>
                     <button 
-                    className="flex items-center border border-gray-400 
+                    className="flex items-center 
+                    border border-gray-400 
                     px-4 w-1/2 py-2 rounded-md 
                     text- font-semibold focus:outline-none
                     cursor-pointer hover:bg-[#cfcfcf]">
@@ -123,7 +120,6 @@ export default function Signin() {
           </div>
         </div>
       </div>
-    </div>
     </>
   )
 }

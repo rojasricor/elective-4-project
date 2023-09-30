@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import ContacBot from './contact/ContacBot';
 
 function Home(): React.ReactNode {
   const stats = [
@@ -221,6 +222,9 @@ function Home(): React.ReactNode {
             </div>
           </dl>
         </div>
+
+        {/* BUTTON CONTACT AND BOT */}
+       < ContacBot />
       </div>
     </>
   )
