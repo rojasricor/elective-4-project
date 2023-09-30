@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import ContacBot from './contact/ContacBot';
+import ContacBot from './contact/ContacBot'
 
-function Home(): React.ReactNode {
+function Home (): React.ReactNode {
   const stats = [
     { id: 1, name: 'Transacciones cada 24 horas', value: '44 millones' },
     { id: 2, name: 'Activos bajo tenencia', value: '$119 trillones' },
-    { id: 3, name: 'Nuevos usuarios anualmente', value: '46,000' },
+    { id: 3, name: 'Nuevos usuarios anualmente', value: '46,000' }
   ]
 
   return (
