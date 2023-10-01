@@ -38,7 +38,6 @@ const Mision: React.FC = (props: React.SVGProps<SVGSVGElement>) => {
       />
       <polygon
         points="310.6843 159.98014 319.44968 126.28289 353.59686 124.64036 363.8132 171.09089 310.6843 159.98014"
-        isolation="isolate"
         opacity=".1"
       />
       <circle cx="333.15384" cy="103.92448" r="41.21628" fill="#ffb6b6" />
