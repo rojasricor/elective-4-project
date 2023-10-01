@@ -2,7 +2,6 @@ import {
   FinanceIcon,
   PigMoneyIcon
 } from './icons'
-// import Saving from './svgs/saving.svg'
 import { Saving } from './svgs'
 
 const features = [

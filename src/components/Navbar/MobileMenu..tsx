@@ -48,7 +48,7 @@ function MobileMenu ({
                 Inicio
               </Link>
               <Link
-                href="/financialEducation"
+                href="/financial-education"
                 className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
                 onClick={handleResetMenus}
               >

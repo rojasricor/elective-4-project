@@ -66,7 +66,7 @@ function NavBar (): React.ReactNode {
             Inicio
           </Link>
           <Link
-            href="/financialEducation"
+            href="/financial-education"
             className="text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
             onClick={handleResetMenus}
           >
