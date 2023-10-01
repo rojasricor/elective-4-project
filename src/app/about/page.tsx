@@ -3,11 +3,9 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import AboutUs from './svgs/AboutUs.svg'
-import Mision from './svgs/Mision.svg'
-import Vision from './svgs/Vision.svg'
 import ArrowDown from './Icons/ArrowDown'
 import ArrowUp from './Icons/ArrowUp'
+import { AboutUs, Mision, Vision } from './svgs'
 
 function About (): React.ReactNode {
   const [viewMoreInfoVision, setViewMoreInfoVision] = useState(false)
@@ -26,7 +24,7 @@ function About (): React.ReactNode {
       <main className="px-40 py-20">
         <section className="flex justify-center items-center gap-16 mt-5">
           <div className="w-96">
-            <Image width={400} height={400} src={AboutUs} alt="" />
+            <AboutUs />
           </div>
           <div className="flex flex-col gap-3 w-5/12">
             <h1 className="font-bold text-4xl text-[#79ad34]">
@@ -59,13 +57,13 @@ function About (): React.ReactNode {
             </button> */}
           </div>
           <div className="w-96">
-            <Image width={400} height={400} src={Mision} alt="" />
+            <Mision />
           </div>
         </section>
         <div id='vision' />
         <section className="flex justify-center items-center gap-16 mt-32">
           <div className="w-96">
-            <Image width={400} height={400} src={Vision} alt="" />
+            <Vision />
           </div>
           <div className="flex flex-col gap-3 w-5/12">
             <h1 className="font-bold text-4xl text-[#79ad34]">Visión</h1>

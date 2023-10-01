@@ -10,11 +10,11 @@ interface MobileMenuProps {
   handleResetMenus: () => void
 }
 
-function MobileMenu({
+function MobileMenu ({
   isSubMenuMobileOpen,
   handleMenuMobileOpen,
   handleSubMenuMobileOpen,
-  handleResetMenus,
+  handleResetMenus
 }: MobileMenuProps): React.ReactNode {
   return (
     <div className="lg:hidden" role="dialog" aria-modal="true">
@@ -46,6 +46,13 @@ function MobileMenu({
                 onClick={handleResetMenus}
               >
                 Inicio
+              </Link>
+              <Link
+                href="/financialEducation"
+                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
+                onClick={handleResetMenus}
+              >
+                Educación Financiera
               </Link>
               <Link
                 href="/contact"
