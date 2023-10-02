@@ -1,7 +1,22 @@
 {
   "name": "elective-4-project",
-  "version": "0.1.0",
+  "description": "Finanzas educativas",
+  "version": "1.0.0",
   "private": true,
+  "contributors": [
+    {
+      "name": "Ricardo Rojas",
+      "email": "rojasricor@gmail.com"
+    },
+    {
+      "name": "Raúl Quimbaya",
+      "email": "raulquimbaya4@gmail.com"
+    },
+    {
+      "name": "unknow69code",
+      "email": "unknow69007@gmail.com"
+    }
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -27,6 +42,7 @@
     "@types/react": "18.2.23",
     "@types/react-dom": "18.2.7",
     "prettier": "^3.0.3",
+    "prisma": "^5.3.1",
     "typescript": "5.2.2"
   }
 }

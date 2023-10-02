@@ -3,8 +3,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
-import ArrowDown from './Icons/ArrowDown'
-import ArrowUp from './Icons/ArrowUp'
+import ArrowDown from './icons/ArrowDown'
+import ArrowUp from './icons/ArrowUp'
 import { AboutUs, Mision, Vision } from './svgs'
 
 function About(): React.ReactNode {

@@ -7,7 +7,6 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import Link from 'next/link'
-import imagen from './img/gatico2.jpg'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -26,10 +25,10 @@ export default function NotFound() {
         <Image
           width={500}
           height={500}
-          src={imagen}
+          src="/gatico2.jpg"
           alt="Placeholder Image"
           className="object-cover"
-        ></Image>
+        />
       </div>
       <div className="w-full md:w-1/2 p-4 md:p-8">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
