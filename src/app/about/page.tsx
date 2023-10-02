@@ -1,15 +1,11 @@
 'use client'
 
-import { Metadata } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
 import ArrowDown from './Icons/ArrowDown'
 import ArrowUp from './Icons/ArrowUp'
 import { AboutUs, Mision, Vision } from './svgs'
-
-export const metadata: Metadata = {
-  title: 'Finanzas Educativas | Nosotros',
-}
 
 function About(): React.ReactNode {
   const [viewMoreInfoVision, setViewMoreInfoVision] = useState(false)
@@ -20,6 +16,10 @@ function About(): React.ReactNode {
 
   return (
     <>
+      <Head>
+        <title>Finanzas Educativas | Nosotros</title>
+      </Head>
+
       <div id="quienesSomos" className="w-5 h-5 bg-black mt-[-70px]" />
       <main className="px-40 py-20">
         <section className="flex justify-center items-center gap-16 mt-5">
