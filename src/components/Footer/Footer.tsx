@@ -1,15 +1,14 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faTwitter,
   faFacebook,
   faGithub,
   faInstagramSquare,
+  faTwitter,
   faYoutube
 } from '@fortawesome/free-brands-svg-icons'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 
-export default function Footer (): React.ReactNode {
+export default function Footer(): React.ReactNode {
   const Facebook = faFacebook
   const Twitter = faTwitter
   const GithHub = faGithub
@@ -21,22 +20,46 @@ export default function Footer (): React.ReactNode {
       <div>
         <ul className="grid grid-cols-2 grid-rows-3 gap-5 sm:flex sm:gap-8 text-gray-400">
           <li>
-            <Link className='hover:text-[#79ad34] transition-all' href="/">Inicio</Link>
+            <Link className="hover:text-[#79ad34] transition-all" href="/">
+              Inicio
+            </Link>
           </li>
           <li>
-            <Link className='hover:text-[#79ad34] transition-all' href="/financial-education">Educación Financiera</Link>
+            <Link
+              className="hover:text-[#79ad34] transition-all"
+              href="/financial-education"
+            >
+              Educación Financiera
+            </Link>
           </li>
           <li>
-            <Link className='hover:text-[#79ad34] transition-all' href="/contact">Contacto</Link>
+            <Link
+              className="hover:text-[#79ad34] transition-all"
+              href="/contact"
+            >
+              Contacto
+            </Link>
           </li>
           <li>
-            <Link className='hover:text-[#79ad34] transition-all' href="/about">Nosotros</Link>
+            <Link className="hover:text-[#79ad34] transition-all" href="/about">
+              Nosotros
+            </Link>
           </li>
           <li>
-            <Link className='hover:text-[#79ad34] transition-all' href="/signup">Registrarse</Link>
+            <Link
+              className="hover:text-[#79ad34] transition-all"
+              href="/signup"
+            >
+              Registrarse
+            </Link>
           </li>
           <li>
-            <Link className='hover:text-[#79ad34] transition-all' href="/signin">Ingresar</Link>
+            <Link
+              className="hover:text-[#79ad34] transition-all"
+              href="/signin"
+            >
+              Ingresar
+            </Link>
           </li>
         </ul>
       </div>
@@ -90,7 +113,9 @@ export default function Footer (): React.ReactNode {
         </ul>
       </div>
       <div>
-        <p className='text-sm text-gray-400'>© 2023 Finanzas Educativas. Todos los derechos reservados.</p>
+        <p className="text-sm text-gray-400">
+          © 2023 Finanzas Educativas. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
   )

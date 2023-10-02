@@ -5,7 +5,7 @@ interface AboutListMobileProps {
 }
 
 function AboutListMobile({
-  handleResetMenus,
+  handleResetMenus
 }: AboutListMobileProps): React.ReactNode {
   return (
     <div className="mt-2 space-y-2" id="disclosure-1">

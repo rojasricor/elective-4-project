@@ -5,7 +5,7 @@ import Link from 'next/link'
 import imagen from './img/diseno-de-interfaz-de-usuario.png'
 
 export const metadata = {
-  title: 'Finanzas Educativas | Inicia Sesión',
+  title: 'Finanzas Educativas | Inicia Sesión'
 }
 
 export default function Signin() {

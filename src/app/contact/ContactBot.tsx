@@ -1,4 +1,4 @@
-export default function ContacBot(): React.ReactNode {
+export default function ContactBot(): React.ReactNode {
   return (
     <div className="relative">
       <button

@@ -2,7 +2,7 @@ import {
   faContao,
   faHackerNews,
   faInstagramSquare,
-  faLinkedin,
+  faLinkedin
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
@@ -11,7 +11,7 @@ import imagen from './img/gatico2.jpg'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Finanzas Educativas | Página No Encontrada',
+  title: 'Finanzas Educativas | Página No Encontrada'
 }
 
 export default function NotFound() {

@@ -1,16 +1,16 @@
 import Image from 'next/image'
-import ContacBot from './contact/ContacBot'
+import ContactBot from './contact/ContactBot'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Finanzas Educativas | Inicio',
+  title: 'Finanzas Educativas | Inicio'
 }
 
 function Home(): React.ReactNode {
   const stats = [
     { id: 1, name: 'Transacciones cada 24 horas', value: '44 millones' },
     { id: 2, name: 'Activos bajo tenencia', value: '$119 trillones' },
-    { id: 3, name: 'Nuevos usuarios anualmente', value: '46,000' },
+    { id: 3, name: 'Nuevos usuarios anualmente', value: '46,000' }
   ]
 
   return (
@@ -224,7 +224,7 @@ function Home(): React.ReactNode {
         </div>
 
         {/* BUTTON CONTACT AND BOT */}
-        <ContacBot />
+        <ContactBot />
       </div>
     </>
   )

@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Finanzas Educativas | Contacto',
+  title: 'Finanzas Educativas | Contacto'
 }
 
 function Contact(): React.ReactNode {

@@ -10,7 +10,7 @@ interface MobileMenuProps {
   handleResetMenus: () => void
 }
 
-function MobileMenu ({
+function MobileMenu({
   isSubMenuMobileOpen,
   handleMenuMobileOpen,
   handleSubMenuMobileOpen,

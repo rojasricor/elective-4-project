@@ -8,7 +8,7 @@ interface ItemListDropDownProps {
   handleResetMenus: () => void
 }
 
-function ItemListDropDown ({
+function ItemListDropDown({
   title,
   description,
   Icon,

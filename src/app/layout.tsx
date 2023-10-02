@@ -14,7 +14,7 @@ export const metadata = {
   keywords: 'Educacion, finanzas, enseñanzas, ahorro,'
 }
 
-export default function RootLayout ({
+export default function RootLayout({
   children
 }: {
   children: React.ReactNode
@@ -24,9 +24,7 @@ export default function RootLayout ({
       <body>
         <Navbar />
 
-        <div className='py-20'>
-          {children}
-        </div>
+        <div className="py-20">{children}</div>
 
         <Footer />
       </body>

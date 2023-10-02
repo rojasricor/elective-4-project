@@ -4,7 +4,7 @@ import Link from 'next/link'
 import SignUpGif from './gifs/signUp.gif'
 
 export const metadata: Metadata = {
-  title: 'Finanzas Educativas | Registrarse',
+  title: 'Finanzas Educativas | Registrarse'
 }
 
 function Signup(): React.ReactNode {
