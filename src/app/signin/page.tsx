@@ -2,65 +2,60 @@ import { faChrome, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import Link from 'next/link'
-import imagen from './img/diseno-de-interfaz-de-usuario.png'
+import SignInGif from './gifs/signIn.gif'
 
 export const metadata = {
   title: 'Finanzas Educativas | Inicia Sesión'
 }
 
-export default function Signin() {
+export default function Signin () {
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 pb-12 pt-6 lg:px-8 mb-10">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8 mb-10">
       <div className="sm:mx-auto sm:w-full sm:max-w-xl md:max-w-3xl">
         <h2
-          className="mt-10
-          text-center text-4xl md:text-3xl
-          font-bold leading-9 tracking-tight
-           text-gray-900"
+          className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900"
         >
           Iniciar sesion en Finanzas Educativas
         </h2>
       </div>
-      <div className="flex justify-center items-center gap-16 mt-16">
+      <div className="flex justify-center items-center gap-16 mt-10">
         <div className="lg:flex lg:justify-center lg:items-center hidden">
-          <Image
-            width={400}
-            height={400}
-            src={imagen}
-            alt="Placeholder Image"
-            className="object-cover"
-          ></Image>
+          <Image width={400} height={400} src={SignInGif} alt="" />
         </div>
-        <div className="border-b border-gray-900/10 pb-12">
+        <div className="border-b border-gray-900/10 pb-12 w-80">
           <form action="#" method="POST">
             {/* <!-- Username Input --> */}
             <div className="mb-4">
-              <label htmlFor="username" className="block text-gray-600">
-                Username
+              <label
+                htmlFor="username"
+                className="block font-medium leading-6 text-gray-900"
+              >
+                Usuario
               </label>
               <input
                 type="text"
                 id="username"
                 name="username"
-                className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs"
                 autoComplete="off"
               />
             </div>
-            {/* <!-- Password Input --> */}
-            <div className="mb-4">
-              <label htmlFor="password" className="block text-gray-600">
-                Password
+            <div className="mb-1">
+              <label
+                htmlFor="password"
+                className="block font-medium leading-6 text-gray-900"
+              >
+                Contraseña
               </label>
               <input
                 type="password"
                 id="password"
                 name="password"
-                className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+                className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs"
                 autoComplete="off"
               />
             </div>
-            {/* <!-- Remember Me Checkbox --> */}
-            <div className="mb-4 flex items-center">
+            {/* <div className="mb-4 flex items-center">
               <input
                 type="checkbox"
                 id="remember"
@@ -70,60 +65,37 @@ export default function Signin() {
               <label htmlFor="remember" className="text-gray-600 ml-2">
                 Remember Me
               </label>
-            </div>
-            {/* <!-- Forgot Password Link --> */}
-            <div className="mb-6 text-blue-500">
-              <a href="#" className="hover:underline">
-                Forgot Password?
-              </a>
-            </div>
-            {/* <!-- Login Button --> */}
+            </div> */}
+            <p className="mb-6 text-sm">
+              <Link
+                href="/signup"
+                className="leading-6 text-[#008aae] hover:text-[#79ad34]"
+              >
+                ¿Olvidaste tu contraseña?
+              </Link>
+            </p>
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white
-            font-semibold
-            rounded-md py-2
-            px-4 w-full"
+              className="rounded-md px-10 py-2 font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 duration-300 bg-[#008aae] hover:bg-[#79ad34] disabled:opacity-50 w-full"
             >
-              Login
+              INGRESAR
             </button>
           </form>
-          {/* <!-- Sign up  Link --> */}
-          <div className="mt-6 text-blue-500 text-center">
-            <Link href="/signup" className="hover:underline">
-              Sign up Here
+          <p className="mt-6 text-center text-gray-500">
+            ¿No estás registrado?{' '}
+            <Link
+              href="/signup"
+              className="font-semibold leading-6 text-[#008aae] hover:text-[#79ad34]"
+            >
+              Registrarme
             </Link>
-          </div>
-          <p className="text-center my-4">Or continue with</p>
-          <div className="flex gap-4">
-            <button
-              className="flex items-center border border-gray-400
-                    px-4 w-1/2 py-2 rounded-md
-                    text- font-semibold focus:outline-none
-                    cursor-pointer hover:bg-[#cfcfcf]"
-            >
-              <FontAwesomeIcon
-                icon={faFacebook}
-                className="mr-2 w-5 h-5"
-                color="blue"
-              />
-              Facebook
-            </button>
-            <button
-              className="flex items-center
-                    border border-gray-400
-                    px-4 w-1/2 py-2 rounded-md
-                    text- font-semibold focus:outline-none
-                    cursor-pointer hover:bg-[#cfcfcf]"
-            >
-              <FontAwesomeIcon
-                icon={faChrome}
-                className="mr-2 w-5 h-5"
-                color="green"
-              />
-              Google
-            </button>
-          </div>
+          </p>
+          {/* <!-- Sign up  Link --> */}
+          {/* <div className="mt-6 text-blue-500 text-center">
+            <Link href="/signup" className="hover:underline">
+              Registrarme
+            </Link>
+          </div> */}
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import SignUpGif from './gifs/signUp.gif'
 import { useState } from 'react'
 
-function Signup(): React.ReactNode {
+function Signup (): React.ReactNode {
   const [termsAccepted, setTermsAccepted] = useState(false)
 
   return (
@@ -15,7 +15,7 @@ function Signup(): React.ReactNode {
         <title>Finanzas Educativas | Registrarse</title>
       </Head>
 
-      <div className=" flex min-h-full flex-1 flex-col justify-center px-6 pb-12 pt-6 lg:px-8 mb-10">
+      <div className=" flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8 mb-10">
         <div className="sm:mx-auto sm:w-full sm:max-w-xl md:max-w-3xl">
           <h2 className="mt-10 text-center text-4xl md:text-3xl font-bold leading-9 tracking-tight text-gray-900">
             Registrarse en Finanzas Educativas
@@ -182,7 +182,7 @@ function Signup(): React.ReactNode {
                         type="checkbox"
                         className="h-6 w-6 rounded border-gray-300 text-[#008aae] focus:ring-[#79ad34]"
                         checked={termsAccepted}
-                        onChange={() => setTermsAccepted(!termsAccepted)}
+                        onChange={() => { setTermsAccepted(!termsAccepted) }}
                       />
                     </div>
                     <div className="leading-6">
