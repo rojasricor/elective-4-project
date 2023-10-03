@@ -6,6 +6,7 @@ import { useState } from 'react'
 import ArrowDown from './icons/ArrowDown'
 import ArrowUp from './icons/ArrowUp'
 import { AboutUs, Mision, Vision } from './svgs'
+import Team from './team/team'
 
 function About(): React.ReactNode {
   const [viewMoreInfoVision, setViewMoreInfoVision] = useState(false)
@@ -105,82 +106,7 @@ function About(): React.ReactNode {
         </section>
 
         <div id="team" />
-        <div className="bg-white py-24 sm:pt-52 sm:pb-16">
-          <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl font-bold tracking-tight text-[#79ad34] sm:text-4xl">
-                Nuestro Equipo
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                magni incidunt voluptate dicta possimus veritatis voluptatem,
-                illo magnam quis quo?
-              </p>
-            </div>
-            <ul
-              role="list"
-              className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2"
-            >
-              <li>
-                <div className="flex items-center gap-x-6">
-                  <Image
-                    width={64}
-                    height={64}
-                    className="rounded-full"
-                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                  <div>
-                    <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
-                      Lorem, ipsum.
-                    </h3>
-                    <p className="text-sm font-semibold leading-6 text-[#008aae]">
-                      Lorem, ipsum.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-center gap-x-6">
-                  <Image
-                    width={64}
-                    height={64}
-                    className="rounded-full"
-                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                  <div>
-                    <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
-                      Lorem, ipsum.
-                    </h3>
-                    <p className="text-sm font-semibold leading-6 text-[#008aae]">
-                      Lorem, ipsum.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-center gap-x-6">
-                  <Image
-                    width={64}
-                    height={64}
-                    className="rounded-full"
-                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                  <div>
-                    <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
-                      Lorem, ipsum.
-                    </h3>
-                    <p className="text-sm font-semibold leading-6 text-[#008aae]">
-                      Lorem, ipsum.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <Team />
       </main>
     </>
   )
