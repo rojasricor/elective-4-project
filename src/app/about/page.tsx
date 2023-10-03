@@ -8,7 +8,7 @@ import ArrowUp from './icons/ArrowUp'
 import { AboutUs, Mision, Vision } from './svgs'
 import Team from './team/team'
 
-function About(): React.ReactNode {
+function About (): React.ReactNode {
   const [viewMoreInfoVision, setViewMoreInfoVision] = useState(false)
 
   const handleViewMoreInfoVision = () => {
@@ -21,13 +21,13 @@ function About(): React.ReactNode {
         <title>Finanzas Educativas | Nosotros</title>
       </Head>
 
-      <div id="quienesSomos" className="w-5 h-5 bg-black mt-[-70px]" />
-      <main className="px-40 py-20">
-        <section className="flex justify-center items-center gap-16 mt-5">
-          <div className="w-96">
+      <div id="quienesSomos" className="w-5 h-5 mt-[-70px]" />
+      <main className="px-8 md:px-16 py-20">
+        <section className="w-full md:flex md:justify-center md:items-center md:gap-16 mt-5">
+          <div className="hidden md:block lg:w-96">
             <AboutUs />
           </div>
-          <div className="flex flex-col gap-3 w-5/12">
+          <div className="flex flex-col gap-3 w-full md:w-5/12">
             <h1 className="font-bold text-4xl text-[#79ad34]">
               ¿Quienes somos?
             </h1>
@@ -46,8 +46,8 @@ function About(): React.ReactNode {
           </div>
         </section>
         <div id="mision" />
-        <section className="flex justify-center items-center gap-16 mt-32">
-          <div className="flex flex-col gap-3 w-5/12">
+        <section className="w-full md:flex md:justify-center md:items-center md:gap-16 mt-16 md:mt-32">
+          <div className="flex flex-col gap-3 w-full md:w-5/12">
             <h1 className="font-bold text-4xl text-[#79ad34]">Misión</h1>
             <p className="text-gray-600 text-lg">
               Nuestra misión es empoderar a las personas para que tomen el
@@ -63,16 +63,16 @@ function About(): React.ReactNode {
               <ArrowDown />
             </button> */}
           </div>
-          <div className="w-96">
+          <div className="hidden md:block lg:w-96">
             <Mision />
           </div>
         </section>
         <div id="vision" />
-        <section className="flex justify-center items-center gap-16 mt-32">
-          <div className="w-96">
+        <section className="w-full md:flex md:justify-center md:items-center md:gap-16 mt-16 md:mt-32">
+          <div className="hidden md:block lg:w-96">
             <Vision />
           </div>
-          <div className="flex flex-col gap-3 w-5/12">
+          <div className="flex flex-col gap-3 w-full md:w-5/12">
             <h1 className="font-bold text-4xl text-[#79ad34]">Visión</h1>
             <p className="text-gray-600 text-lg">
               Nuestra visión es construir un mundo en el que la tendencia al
