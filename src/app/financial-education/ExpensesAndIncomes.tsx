@@ -19,13 +19,23 @@ export default function ExpensesAndIncomes () {
             </p>
           </div>
         </div>
-        <div className="mt-16 sm:mt-28 flex justify-center items-center gap-14 sm:text-4xl">
+        <div className="mt-14 sm:mt-24 flex justify-center items-center gap-14 sm:text-4xl">
           <div>
             <p className="text-3xl text-left font-bold tracking-tight text-gray-900">
               ¿Qué son gastos?
             </p>
             <p className="mt-6 text-lg text-left leading-8 text-gray-600">
-              La cultura occidental y su sala de prensa, Hollywood, nos han inculcado un estilo de vida extravagante. Muchas fiestas, vida social, largos viajes, mansiones, yates, negocios y relaciones. Y gran parte de la población tiene como su sueño ese estilo de vida irreal. Todo esto no sería tan peligroso si no pasara de un deseo momentáneo; pero para un gran sector de la población, es la meta fundamental a lograr. Para muchos, los escasos ingresos se traducen en imitar este estilo de vida, en adquirir posesiones innecesarias; en pocas palabras, en una mala administración de los gastos personales y familiares.
+            Por definición, son los cargos monetarios en que una persona incurre en el desarrollo normal de su vida o actividad económica. Es decir, son las salidas de dinero (egresos) que realiza para poder vivir de la manera que vive. <br /><br />
+
+            Ejemplos:
+              <ul className='pl-6'>
+                <li>- Arriendo.</li>
+                <li>- Servicios públicos.</li>
+                <li>- Cuota tarjeta de crédito.</li>
+                <li>- Suscripción a servicio de streaming.</li>
+                <li>- Ropa.</li>
+                <li>- Vacaciones en la playa.</li>
+              </ul>
             </p>
           </div>
           <div className="hidden lg:block">
