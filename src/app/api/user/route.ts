@@ -60,7 +60,8 @@ export async function POST (request: Request) {
       message: 'User created successfully'
     }, { status: 201 })
   } catch (error: any) {
-    console.log(error.errors)
+    console.log(error)
+
     if (error?.errors !== null) {
       const errorsMessages: Record<string, string> = {}
       const { errors } = error

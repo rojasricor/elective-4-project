@@ -1,59 +1,57 @@
 import { z } from 'zod'
 
 export const signUpSchema = z.object({
-  document_type: z.string()
-    .min(3, {
-      message: 'Document type must be at least 3 characters.'
-    })
-    .max(20),
+  document_type: z.string(),
 
   document: z.string()
     .min(7, {
-      message: 'Document must be at least 7 characters.'
+      message: 'El número de documento debe tener al menos 7 caracteres.'
     })
     .max(12, {
-      message: 'Document must have a maximum of 8 characters.'
+      message: 'El número de documento debe tener un máximo de 12 caracteres.'
     }),
 
   first_name: z.string()
     .min(4, {
-      message: 'First name must be at least 2 characters.'
+      message: 'Los nombres deben tener al menos 4 caracteres.'
     })
     .max(50, {
-      message: 'First name must have a maximum of 50 characters.'
+      message: 'Los nombres deben tener un máximo de 50 caracteres.'
     }),
 
   last_name: z.string()
     .min(4, {
-      message: 'Last name must be at least 4 characters.'
+      message: 'Los apellidos deben tener al menos 4 caracteres.'
     })
     .max(50, {
-      message: 'Last name must have a maximum of 50 characters.'
+      message: 'Los apellidos deben tener un máximo de 50 caracteres.'
     }),
 
   email: z.string()
     .email({
-      message: 'Invalid email.'
+      message: 'El correo electrónico debe ser válido.'
     }),
 
   phone_number: z.string()
     .min(8, {
-      message: 'Phone number must be at least 8 characters.'
+      message: 'El número de teléfono debe tener al menos 8 caracteres.'
     })
     .max(12, {
-      message: 'Phone number must have a maximum of 12 characters.'
+      message: 'El número de teléfono debe tener un máximo de 12 caracteres.'
     }),
 
   password: z.string()
     .min(8, {
-      message: 'Password must be at least 8 characters.'
+      message: 'La contraseña debe tener al menos 8 caracteres.'
     })
-    .max(100),
+    .max(50, {
+      message: 'La contraseña debe tener un máximo de 50 caracteres.'
+    }),
 
   confirm_password: z.string().min(8, {
-    message: 'Password must be at least 8 characters.'
+    message: 'La contraseña debe tener al menos 8 caracteres.'
   })
 }).refine(data => data.password === data.confirm_password, {
-  message: 'Passwords do not match.',
+  message: 'Las contraseñas no coinciden.',
   path: ['confirm_password']
 })

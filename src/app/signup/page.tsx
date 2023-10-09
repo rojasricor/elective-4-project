@@ -5,9 +5,56 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SignUpGif from './gifs/signUp.gif'
 import { useState } from 'react'
+import axios from 'axios'
+import { toast } from 'react-hot-toast'
+import {
+  type FieldValues,
+  type SubmitHandler,
+  useForm
+} from 'react-hook-form'
 
 function Signup (): React.ReactNode {
   const [termsAccepted, setTermsAccepted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const { register, handleSubmit, formState: { errors }} = useForm<FieldValues>({
+    defaultValues: {
+      document_type: 'cedula_ciudadania',
+      document: '',
+      first_name: '',
+      last_name: '',
+      email: '',
+      phone_number: '',
+      password: '',
+      confirm_password: ''
+    }
+  })
+
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    try {
+      setIsLoading(true)
+      
+      const response = await axios.post('/api/user', data)
+
+      if (response.status === 201) toast.success('Te registraste exitosamente!')
+      else toast.error('Error al registrarse!')
+    } catch (error: any) {
+      if (error.response.data) {
+        const errorsMessages = Object.values(error.response.data)
+        let errorsMessagesString = ''
+
+        errorsMessages.forEach(message => {
+          errorsMessagesString += `🔸 ${message} ${'\n'}`
+        })
+
+        toast.error(errorsMessagesString, {className: 'text-center'})
+      } else {
+        console.log(error.message)
+      }
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <>
@@ -28,21 +75,21 @@ function Signup (): React.ReactNode {
               <Image width={500} height={500} src={SignUpGif} alt="" />
             </div>
           </div>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="space-y-12">
               <div className="border-b border-gray-900/10 pb-12">
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-3">
                     <label
-                      htmlFor="tipoDocumento"
+                      htmlFor="document_type"
                       className="block font-medium leading-6 text-gray-900"
                     >
                       Tipo de Documento
                     </label>
                     <div className="mt-2">
                       <select
-                        id="tipoDocumento"
-                        name="tipoDocumento"
+                        id="document_type"
+                        {...register('document_type', { required: 'El tipo de documento es un campo obligatorio!' })}
                         className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs"
                       >
                         <option value='cedula_ciudadania'>Cédula de Ciudadanía</option>
@@ -53,24 +100,31 @@ function Signup (): React.ReactNode {
 
                   <div className="sm:col-span-3">
                     <label
-                      htmlFor="numeroIdentificacion"
+                      htmlFor="document"
                       className="block font-medium leading-6 text-gray-900"
                     >
                       Número de Identificación
                     </label>
                     <div className="mt-2">
                       <input
-                        type="number"
-                        name="numeroIdentificacion"
-                        id="numeroIdentificacion"
-                        className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
+                        type="text"
+                        id="document"
+                        {...register('document', { required: 'El número de identificación es un campo obligatorio!' })}
+                        className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]
+                        ${errors.document ? 'ring-rose-500' : 'border-gray-300'}}
+                        ${errors.document ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
                       />
                     </div>
+                    {
+                      errors.document && (
+                        <p className="mt-2 text-sm text-rose-500">{errors.document.message as any}</p>
+                      )
+                    }
                   </div>
 
                   <div className="sm:col-span-3">
                     <label
-                      htmlFor="nombres"
+                      htmlFor="first_name"
                       className="block font-medium leading-6 text-gray-900"
                     >
                       Nombres
@@ -78,16 +132,21 @@ function Signup (): React.ReactNode {
                     <div className="mt-2">
                       <input
                         type="text"
-                        name="nombres"
-                        id="nombres"
+                        id="first_name"
+                        {...register('first_name', { required: 'Los nombres son un campo obligatorio!' })}
                         className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
                       />
                     </div>
+                    {
+                      errors.first_name && (
+                        <p className="mt-2 text-sm text-rose-500">{errors.first_name.message as any}</p>
+                      )
+                    }
                   </div>
 
                   <div className="sm:col-span-3">
                     <label
-                      htmlFor="apellidos"
+                      htmlFor="last_name"
                       className="block font-medium leading-6 text-gray-900"
                     >
                       Apellidos
@@ -95,11 +154,38 @@ function Signup (): React.ReactNode {
                     <div className="mt-2">
                       <input
                         type="text"
-                        name="apellidos"
-                        id="apellidos"
+                        id="last_name"
+                        {...register('last_name', { required: 'Los apellidos son un campo obligatorio!' })}
                         className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
                       />
                     </div>
+                    {
+                      errors.last_name && (
+                        <p className="mt-2 text-sm text-rose-500">{errors.last_name.message as any}</p>
+                      )
+                    }
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="phone_number"
+                      className="block font-medium leading-6 text-gray-900"
+                    >
+                      Celular
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="tel"
+                        id="phone_number"
+                        {...register('phone_number', { required: 'El número de teléfono es un campo obligatorio!' })}
+                        className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
+                      />
+                    </div>
+                    {
+                      errors.phone_number && (
+                        <p className="mt-2 text-sm text-rose-500">{errors.phone_number.message as any}</p>
+                      )
+                    }
                   </div>
 
                   <div className="sm:col-span-4">
@@ -112,33 +198,21 @@ function Signup (): React.ReactNode {
                     <div className="mt-2">
                       <input
                         id="email"
-                        name="email"
                         type="email"
+                        {...register('email', { required: 'El correo electrónico es un campo obligatorio!' })}
                         className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
                       />
                     </div>
+                    {
+                      errors.email && (
+                        <p className="mt-2 text-sm text-rose-500">{errors.email.message as any}</p>
+                      )
+                    }
                   </div>
 
                   <div className="sm:col-span-3">
                     <label
-                      htmlFor="celular"
-                      className="block font-medium leading-6 text-gray-900"
-                    >
-                      Celular
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        type="tel"
-                        name="celular"
-                        id="celular"
-                        className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="password1"
+                      htmlFor="password"
                       className="block font-medium leading-6 text-gray-900"
                     >
                       Contraseña
@@ -146,16 +220,21 @@ function Signup (): React.ReactNode {
                     <div className="mt-2">
                       <input
                         type="password"
-                        name="password1"
-                        id="password1"
+                        id="password"
+                        {...register('password', { required: 'La contraseña es un campo obligatorio!' })}
                         className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
                       />
                     </div>
+                    {
+                      errors.password && (
+                        <p className="mt-2 text-sm text-rose-500">{errors.password.message as any}</p>
+                      )
+                    }
                   </div>
 
                   <div className="sm:col-span-3">
                     <label
-                      htmlFor="password2"
+                      htmlFor="confirm_password"
                       className="block font-medium leading-6 text-gray-900"
                     >
                       Confirmar Contraseña
@@ -163,11 +242,16 @@ function Signup (): React.ReactNode {
                     <div className="mt-2">
                       <input
                         type="password"
-                        name="password2"
-                        id="password2"
+                        id="confirm_password"
+                        {...register('confirm_password', { required: 'La confirmación de la contraseña es un campo obligatorio!' })}
                         className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
                       />
                     </div>
+                    {
+                      errors.confirm_password && (
+                        <p className="mt-2 text-sm text-rose-500">{errors.confirm_password.message as any}</p>
+                      )
+                    }
                   </div>
                 </div>
               </div>
