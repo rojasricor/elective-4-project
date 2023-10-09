@@ -45,8 +45,8 @@ function Signup (): React.ReactNode {
                         name="tipoDocumento"
                         className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs"
                       >
-                        <option>Cédula de Ciudadanía</option>
-                        <option>Cédula de Extranjería</option>
+                        <option value='cedula_ciudadania'>Cédula de Ciudadanía</option>
+                        <option value='cedula_extranjeria'>Cédula de Extranjería</option>
                       </select>
                     </div>
                   </div>

@@ -12,11 +12,14 @@ datasource db {
 }
 
 model User {
-  id           Int    @id @default(autoincrement())
-  cedula       String @unique
-  first_name   String
-  last_name    String
-  email        String @unique
-  phone_number String @unique
-  password     String
+  id            Int    @id @default(autoincrement())
+  document_type String 
+  document      String @unique
+  first_name    String
+  last_name     String
+  phone_number  String @unique
+  email         String @unique
+  password      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }

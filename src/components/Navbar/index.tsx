@@ -15,7 +15,7 @@ import {
 import ItemListDropDown from './ItemListDropDown'
 import MobileMenu from './MobileMenu.'
 
-function NavBar(): React.ReactNode {
+function NavBar (): React.ReactNode {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false)
   const [isSubMenuMobileOpen, setIsSubMenuMobileOpen] = useState(false)
