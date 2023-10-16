@@ -1,84 +1,60 @@
 import Image from 'next/image'
 import ContactBot from './contact/ContactBot'
-import { Metadata } from 'next'
+import Link from 'next/link'
+import Title from '@/components/Title'
+import { getServerSession } from 'next-auth/next'
+import { redirect } from 'next/navigation'
 
-export const metadata: Metadata = {
-  title: 'Finanzas Educativas | Inicio'
-}
+async function Home () {
+  const session = await getServerSession()
 
-function Home(): React.ReactNode {
-  const stats = [
-    { id: 1, name: 'Transacciones cada 24 horas', value: '44 millones' },
-    { id: 2, name: 'Activos bajo tenencia', value: '$119 trillones' },
-    { id: 3, name: 'Nuevos usuarios anualmente', value: '46,000' }
-  ]
+  // const stats = [
+  //   { id: 1, name: 'Transacciones cada 24 horas', value: '44 millones' },
+  //   { id: 2, name: 'Activos bajo tenencia', value: '$119 trillones' },
+  //   { id: 3, name: 'Nuevos usuarios anualmente', value: '46,000' }
+  // ]
+
+  if (session !== null && session?.user?.email !== 'admin@gmail.com') {
+    return redirect('profile/user')
+  } else if (session !== null && session?.user?.email === 'admin@gmail.com') {
+    return redirect('profile/admin/home-preview')
+  }
 
   return (
     <>
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-            {stats.map((stat) => (
-              <div
-                key={stat.id}
-                className="mx-auto flex max-w-xs flex-col gap-y-4"
+      <div className="relative isolate px-6 mt-[-5rem] lg:px-8 py-20">
+        <div className="mx-auto max-w-2xl h-screen flex flex-col justify-center items-center">
+          <div className="flex mb-8 justify-center">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+              Aprender un poco sobre finanzas.{' '}
+              <Link href="/financial-education" className="font-semibold text-[#008aae]">
+                <span className="absolute inset-0" aria-hidden="true" />
+                Leer más <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
+          </div>
+          <div className="text-center">
+            <h1 className="mb-5 sm:mb-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              Bienvenido a <Title text='¡Finanzas Educativas!' />
+            </h1>
+            <p className="text-lg leading-8 text-gray-600">
+              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
+              fugiat veniam occaecat fugiat aliqua.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link
+                href="/signup"
+                className="rounded-md bg-[#008aae] hover:bg-[#79ad34] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors duration-300"
               >
-                <dt className="text-base leading-7 text-gray-600">
-                  {stat.name}
-                </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                  {stat.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
+                Registrarse
+              </Link>
+              <Link href="/signin" className="text-sm font-semibold leading-6 text-gray-900 hover:bg-[#008aae] transition-colors duration-300 rounded-md px-3.5 py-2 hover:text-white shadow-md">
+                Ingresar <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-
-      <section className="relative isolate overflow-hidden bg-white px-6 lg:px-8">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
-        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
-        <div className="mx-auto max-w-2xl lg:max-w-4xl">
-          <Image
-            width={48}
-            height={48}
-            className="mx-auto w-auto h-11"
-            src="https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg"
-            alt=""
-          />
-          <figure className="mt-10">
-            <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
-              <p>
-                “Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                expedita voluptas culpa sapiente alias molestiae. Numquam
-                corrupti in laborum sed rerum et corporis.”
-              </p>
-            </blockquote>
-            <figcaption className="mt-10">
-              <Image
-                className="mx-auto rounded-full"
-                width={40}
-                height={40}
-                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-              <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-                <div className="font-semibold text-gray-900">Lorem Ipsum</div>
-                <svg
-                  viewBox="0 0 2 2"
-                  width={3}
-                  height={3}
-                  aria-hidden="true"
-                  className="fill-gray-900"
-                >
-                  <circle cx={1} cy={1} r={1} />
-                </svg>
-                <div className="text-gray-600">Lorem ipsum dolor</div>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
 
       <div className="bg-white py-7 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">

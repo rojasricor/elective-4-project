@@ -4,7 +4,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import SignUpGif from './gifs/signUp.gif'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter, redirect } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import {
@@ -12,12 +14,15 @@ import {
   type SubmitHandler,
   useForm
 } from 'react-hook-form'
+import Title from '@/components/Title'
 
 function Signup (): React.ReactNode {
   const [termsAccepted, setTermsAccepted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const { data: session, status } = useSession()
+  const router = useRouter()
 
-  const { register, handleSubmit, formState: { errors }} = useForm<FieldValues>({
+  const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>({
     defaultValues: {
       document_type: 'cedula_ciudadania',
       document: '',
@@ -30,26 +35,37 @@ function Signup (): React.ReactNode {
     }
   })
 
+  useEffect(() => {
+    if (status === 'authenticated' && session?.user?.document !== '0000000000') {
+      return redirect('/profile/user')
+    } else if (status === 'authenticated' && session?.user?.document === '0000000000') {
+      return redirect('/profile/admin')
+    }
+  }, [status])
+
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       setIsLoading(true)
-      
+
       const response = await axios.post('/api/user', data)
 
-      if (response.status === 201) toast.success('Te registraste exitosamente!')
-      else toast.error('Error al registrarse!')
+      if (response.status === 201) {
+        toast.success('Te registraste exitosamente!')
+        router.refresh()
+        router.push('/profile/user')
+      } else toast.error('Error al registrarse!')
     } catch (error: any) {
-      if (error.response.data) {
+      if (error.response.data !== undefined) {
         const errorsMessages = Object.values(error.response.data)
         let errorsMessagesString = ''
 
-        errorsMessages.forEach(message => {
+        errorsMessages.forEach((message: any) => {
           errorsMessagesString += `🔸 ${message} ${'\n'}`
         })
 
-        toast.error(errorsMessagesString, {className: 'text-center'})
+        toast.error(errorsMessagesString, { className: 'text-center' })
       } else {
-        console.log(error.message)
+        console.log({ error })
       }
     } finally {
       setIsLoading(false)
@@ -62,10 +78,11 @@ function Signup (): React.ReactNode {
         <title>Finanzas Educativas | Registrarse</title>
       </Head>
 
-      <div className=" flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8 mb-10">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8 mb-10 py-20">
+
         <div className="sm:mx-auto sm:w-full sm:max-w-xl md:max-w-3xl">
           <h2 className="mt-10 text-center text-4xl md:text-3xl font-bold leading-9 tracking-tight text-gray-900">
-            Registrarse en Finanzas Educativas
+            Registrarse en <Title text='¡Finanzas Educativas!' />
           </h2>
         </div>
 
@@ -111,12 +128,12 @@ function Signup (): React.ReactNode {
                         id="document"
                         {...register('document', { required: 'El número de identificación es un campo obligatorio!' })}
                         className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]
-                        ${errors.document ? 'ring-rose-500' : 'border-gray-300'}}
-                        ${errors.document ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
+                        ${errors.document !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
+                        ${errors.document !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
                       />
                     </div>
                     {
-                      errors.document && (
+                      errors.document !== undefined && (
                         <p className="mt-2 text-sm text-rose-500">{errors.document.message as any}</p>
                       )
                     }
@@ -134,11 +151,13 @@ function Signup (): React.ReactNode {
                         type="text"
                         id="first_name"
                         {...register('first_name', { required: 'Los nombres son un campo obligatorio!' })}
-                        className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
+                        className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]
+                        ${errors.first_name !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
+                        ${errors.first_name !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
                       />
                     </div>
                     {
-                      errors.first_name && (
+                      errors.first_name !== undefined && (
                         <p className="mt-2 text-sm text-rose-500">{errors.first_name.message as any}</p>
                       )
                     }
@@ -156,11 +175,13 @@ function Signup (): React.ReactNode {
                         type="text"
                         id="last_name"
                         {...register('last_name', { required: 'Los apellidos son un campo obligatorio!' })}
-                        className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
+                        className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]
+                        ${errors.last_name !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
+                        ${errors.last_name !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
                       />
                     </div>
                     {
-                      errors.last_name && (
+                      errors.last_name !== undefined && (
                         <p className="mt-2 text-sm text-rose-500">{errors.last_name.message as any}</p>
                       )
                     }
@@ -178,11 +199,13 @@ function Signup (): React.ReactNode {
                         type="tel"
                         id="phone_number"
                         {...register('phone_number', { required: 'El número de teléfono es un campo obligatorio!' })}
-                        className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
+                        className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]
+                        ${errors.phone_number !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
+                        ${errors.phone_number !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
                       />
                     </div>
                     {
-                      errors.phone_number && (
+                      errors.phone_number !== undefined && (
                         <p className="mt-2 text-sm text-rose-500">{errors.phone_number.message as any}</p>
                       )
                     }
@@ -200,11 +223,13 @@ function Signup (): React.ReactNode {
                         id="email"
                         type="email"
                         {...register('email', { required: 'El correo electrónico es un campo obligatorio!' })}
-                        className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
+                        className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]
+                        ${errors.email !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
+                        ${errors.email !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
                       />
                     </div>
                     {
-                      errors.email && (
+                      errors.email !== undefined && (
                         <p className="mt-2 text-sm text-rose-500">{errors.email.message as any}</p>
                       )
                     }
@@ -222,11 +247,13 @@ function Signup (): React.ReactNode {
                         type="password"
                         id="password"
                         {...register('password', { required: 'La contraseña es un campo obligatorio!' })}
-                        className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
+                        className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]
+                        ${errors.password !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
+                        ${errors.password !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
                       />
                     </div>
                     {
-                      errors.password && (
+                      errors.password !== undefined && (
                         <p className="mt-2 text-sm text-rose-500">{errors.password.message as any}</p>
                       )
                     }
@@ -244,11 +271,13 @@ function Signup (): React.ReactNode {
                         type="password"
                         id="confirm_password"
                         {...register('confirm_password', { required: 'La confirmación de la contraseña es un campo obligatorio!' })}
-                        className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]"
+                        className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-[#008aae]
+                        ${errors.confirm_password !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
+                        ${errors.confirm_password !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
                       />
                     </div>
                     {
-                      errors.confirm_password && (
+                      errors.confirm_password !== undefined && (
                         <p className="mt-2 text-sm text-rose-500">{errors.confirm_password.message as any}</p>
                       )
                     }

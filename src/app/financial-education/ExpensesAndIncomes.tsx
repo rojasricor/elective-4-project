@@ -24,7 +24,7 @@ export default function ExpensesAndIncomes () {
             <p className="text-3xl text-left font-bold tracking-tight text-gray-900">
               ¿Qué son gastos?
             </p>
-            <p className="mt-6 text-lg text-left leading-8 text-gray-600">
+            <div className="mt-6 text-lg text-left leading-8 text-gray-600">
             Por definición, son los cargos monetarios en que una persona incurre en el desarrollo normal de su vida o actividad económica. Es decir, son las salidas de dinero (egresos) que realiza para poder vivir de la manera que vive. <br /><br />
 
             Ejemplos:
@@ -36,7 +36,7 @@ export default function ExpensesAndIncomes () {
                 <li>- Ropa.</li>
                 <li>- Vacaciones en la playa.</li>
               </ul>
-            </p>
+            </div>
           </div>
           <div className="hidden lg:block">
             <Income />

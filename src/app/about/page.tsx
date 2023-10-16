@@ -22,7 +22,7 @@ function About (): React.ReactNode {
       </Head>
 
       <div id="quienesSomos" className="w-5 h-5 mt-[-70px]" />
-      <main className="px-8 md:px-16 py-20">
+      <main className="px-8 md:px-16 py-40">
         <section className="w-full md:flex md:justify-center md:items-center md:gap-16 mt-5">
           <div className="hidden md:block lg:w-96">
             <AboutUs />
@@ -46,7 +46,7 @@ function About (): React.ReactNode {
           </div>
         </section>
         <div id="mision" />
-        <section className="w-full md:flex md:justify-center md:items-center md:gap-16 mt-16 md:mt-32">
+        <section className="w-full md:flex md:justify-center md:items-center md:gap-16 mt-16">
           <div className="flex flex-col gap-3 w-full md:w-5/12">
             <h1 className="font-bold text-4xl text-[#79ad34]">Misión</h1>
             <p className="text-gray-600 text-lg">
@@ -68,7 +68,7 @@ function About (): React.ReactNode {
           </div>
         </section>
         <div id="vision" />
-        <section className="w-full md:flex md:justify-center md:items-center md:gap-16 mt-16 md:mt-32">
+        <section className="w-full md:flex md:justify-center md:items-center md:gap-16 mt-16">
           <div className="hidden md:block lg:w-96">
             <Vision />
           </div>

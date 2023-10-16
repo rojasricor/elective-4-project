@@ -1,21 +1,79 @@
-import { faChrome, faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+'use client'
+
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import SignInGif from './gifs/signIn.gif'
 
-export const metadata = {
-  title: 'Finanzas Educativas | Inicia Sesión'
-}
+import { toast } from 'react-hot-toast'
+import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter, redirect } from 'next/navigation'
+import Title from '@/components/Title'
 
 export default function Signin () {
+  const [isLoading, setIsLoading] = useState(false)
+  const { data: session, status } = useSession()
+  const router = useRouter()
+
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FieldValues>({
+    defaultValues: {
+      document: '',
+      password: ''
+    }
+  })
+
+  useEffect(() => {
+    if (status === 'authenticated' && session?.user?.document !== '0000000000') {
+      return redirect('/profile/user')
+    } else if (status === 'authenticated' && session?.user?.document === '0000000000') {
+      return redirect('/profile/admin')
+    }
+  }, [status])
+
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    try {
+      setIsLoading(true)
+
+      const response = await signIn('credentials', {
+        document: data.document,
+        password: data.password,
+        redirect: false
+      })
+
+      if (response?.error !== null) {
+        return toast.error('Datos incorrectos!')
+      }
+
+      if (response?.ok) {
+        if (data.document === '0000000000') {
+          toast.success('Admin logueado!')
+          router.refresh()
+          router.push('/profile/admin')
+          reset()
+        } else {
+          toast.success('Usuario logueado!')
+          router.refresh()
+          router.push('/profile/user')
+          reset()
+        }
+      }
+    } catch (error: any) {
+      toast.error(error.response.data.message)
+      console.log({ errorMessage: error.response.data.message })
+      console.log({ error })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8 mb-10">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8 mb-10 py-20">
       <div className="sm:mx-auto sm:w-full sm:max-w-xl md:max-w-3xl">
         <h2
           className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900"
         >
-          Iniciar sesion en Finanzas Educativas
+          Iniciar sesion en <Title text='¡Finanzas Educativas!' />
         </h2>
       </div>
       <div className="flex justify-center items-center gap-16 mt-10">
@@ -23,23 +81,30 @@ export default function Signin () {
           <Image width={400} height={400} src={SignInGif} alt="" />
         </div>
         <div className="border-b border-gray-900/10 pb-12 w-80">
-          <form action="#" method="POST">
+          <form onSubmit={handleSubmit(onSubmit)}>
             {/* <!-- Username Input --> */}
             <div className="mb-4">
               <label
-                htmlFor="username"
+                htmlFor="document"
                 className="block font-medium leading-6 text-gray-900"
               >
-                Usuario
+                Número de Identificación
               </label>
               <input
                 type="text"
-                id="username"
-                name="username"
-                className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs"
-                autoComplete="off"
+                id="document"
+                {...register('document', { required: 'El número de identificación es un campo obligatorio!' })}
+                className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs
+                ${errors.document !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
+                ${errors.document !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
               />
+              {
+                errors.document !== undefined && (
+                  <p className="my-2 text-sm text-rose-500">{errors.document.message as any}</p>
+                )
+              }
             </div>
+
             <div className="mb-1">
               <label
                 htmlFor="password"
@@ -50,10 +115,17 @@ export default function Signin () {
               <input
                 type="password"
                 id="password"
-                name="password"
-                className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs"
-                autoComplete="off"
+                {...register('password', { required: 'La contraseña es un campo obligatorio!' })}
+                className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs"
+                autoComplete="off
+                ${errors.password !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
+                ${errors.password !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
               />
+              {
+                errors.password !== undefined && (
+                  <p className="mt-2 text-sm text-rose-500">{errors.password.message as any}</p>
+                )
+              }
             </div>
             {/* <div className="mb-4 flex items-center">
               <input

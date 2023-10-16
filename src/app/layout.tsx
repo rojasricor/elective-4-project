@@ -1,12 +1,13 @@
-import Navbar from '@/components/Navbar'
+import NavBar from '@/components/Navbar'
 import Footer from '@/components/Footer/Footer'
 import { Oswald } from 'next/font/google'
 import './Global.css'
 import ToasterProvider from '@/providers/ToasterProvider'
+import SessionProviderContext from '@/providers/SessionProvider'
 
 const oswald = Oswald({
   subsets: ['latin'],
-  display: 'swap'
+  preload: false
 })
 
 export const metadata = {
@@ -15,7 +16,7 @@ export const metadata = {
   keywords: 'Educacion, finanzas, enseñanzas, ahorro,'
 }
 
-export default function RootLayout({
+export default async function RootLayout ({
   children
 }: {
   children: React.ReactNode
@@ -23,12 +24,14 @@ export default function RootLayout({
   return (
     <html className={oswald.className}>
       <body>
-        <Navbar />
-        <ToasterProvider />
+        <SessionProviderContext>
+          <NavBar />
+          <ToasterProvider />
 
-        <div className="py-20">{children}</div>
+          <div>{children}</div>
 
-        <Footer />
+          <Footer />
+        </SessionProviderContext>
       </body>
     </html>
   )

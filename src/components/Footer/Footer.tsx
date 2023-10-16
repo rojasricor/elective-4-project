@@ -1,3 +1,5 @@
+'use client'
+
 import {
   faFacebook,
   faGithub,
@@ -7,20 +9,31 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
+import { useSession, signOut } from 'next-auth/react'
+import { usePathname } from 'next/navigation'
 
-export default function Footer(): React.ReactNode {
+export default function Footer (): React.ReactNode {
   const Facebook = faFacebook
   const Twitter = faTwitter
   const GithHub = faGithub
   const Instagram = faInstagramSquare
   const Youtube = faYoutube
+  const { data: session, status } = useSession()
+  const pathname = usePathname()
+
+  const handleCloseSession = (): void => {
+    signOut()
+  }
 
   return (
-    <footer className="flex flex-col justify-center items-center gap-10 py-10 border-t border-[#0f172a1a]">
+    <footer className={`flex flex-col justify-center items-center gap-10 py-10 border-t border-[#0f172a1a] ${pathname.includes('/profile/admin') && 'lg:ml-64'}`}>
       <div>
         <ul className="grid grid-cols-2 grid-rows-3 gap-5 sm:flex sm:gap-8 text-gray-400">
           <li>
-            <Link className="hover:text-[#79ad34] transition-all" href="/">
+            <Link
+              className="hover:text-[#79ad34] transition-all"
+              href={status === 'authenticated' ? '/profile/user' : '/'}
+            >
               Inicio
             </Link>
           </li>
@@ -45,68 +58,86 @@ export default function Footer(): React.ReactNode {
               Nosotros
             </Link>
           </li>
-          <li>
-            <Link
+          {status !== 'authenticated'
+            ? (
+            <>
+              <li>
+                <Link
+                  className="hover:text-[#79ad34] transition-all"
+                  href="/signup"
+                >
+                  Registrarse
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="hover:text-[#79ad34] transition-all"
+                  href="/signin"
+                >
+                  Ingresar
+                </Link>
+              </li>
+            </>
+              )
+            : (
+            <button
               className="hover:text-[#79ad34] transition-all"
-              href="/signup"
+              onClick={handleCloseSession}
             >
-              Registrarse
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="hover:text-[#79ad34] transition-all"
-              href="/signin"
-            >
-              Ingresar
-            </Link>
-          </li>
+              Cerrar Sesión
+            </button>
+              )}
         </ul>
       </div>
       <div>
-        <ul className="flex justify-center items-center gap-5">
+        <ul className="flex justify-center items-center gap-5 sm:gap-12">
           <li>
-            <Link href="#">
+            <Link href="#" className='flex justify-center items-center'>
               <FontAwesomeIcon
                 icon={Facebook}
-                className="mr-4 text-gray-400 hover:text-[#008aae] transition-colors w-6 h-6"
-                title="Facebook"
+                className="text-gray-400 hover:text-[#008aae] transition-colors w-6 h-6"
+                key='facebook'
+                id='facebook'
               />
             </Link>
           </li>
           <li>
-            <Link href="#">
+            <Link href="#" className='flex justify-center items-center'>
               <FontAwesomeIcon
                 icon={Instagram}
-                className="mr-4 text-gray-400 hover:text-[#008aae] transition-colors w-6 h-6"
-                title="Instagram"
+                className="text-gray-400 hover:text-[#008aae] transition-colors w-6 h-6"
+                key='instagram'
+                id='instagram'
               />
             </Link>
           </li>
           <li>
-            <Link href="#">
+            <Link href="#" className='flex justify-center items-center'>
               <FontAwesomeIcon
                 icon={Twitter}
-                className="mr-4 text-gray-400 hover:text-[#008aae] transition-colors w-6 h-6"
-                title="Twitter o X"
+                className="text-gray-400 hover:text-[#008aae] transition-colors w-6 h-6"
+                key='twitter'
+                id='twitter'
               />
             </Link>
           </li>
           <li>
-            <Link href="#">
+            <Link href="#" className='flex justify-center items-center'>
               <FontAwesomeIcon
                 icon={GithHub}
-                className="mr-4 text-gray-400 hover:text-[#008aae] transition-colors w-6 h-6"
-                title="GithHub"
+                className="text-gray-400 hover:text-[#008aae] transition-colors w-6 h-6"
+                key='github'
+                id='github'
               />
             </Link>
           </li>
           <li>
-            <Link href="#">
+            <Link href="#" className='flex justify-center items-center'>
               <FontAwesomeIcon
                 icon={Youtube}
-                className="mr-4 text-gray-400 hover:text-[#008aae] transition-colors w-7 h-6"
-                title="Youtube"
+                className="text-gray-400 hover:text-[#008aae] transition-colors w-7 h-6"
+                key='youtube'
+                id='youtube'
               />
             </Link>
           </li>

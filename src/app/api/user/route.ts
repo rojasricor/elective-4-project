@@ -60,7 +60,7 @@ export async function POST (request: Request) {
       message: 'User created successfully'
     }, { status: 201 })
   } catch (error: any) {
-    console.log(error)
+    console.log({ error })
 
     if (error?.errors !== null) {
       const errorsMessages: Record<string, string> = {}
@@ -73,6 +73,6 @@ export async function POST (request: Request) {
       return NextResponse.json(errorsMessages, { status: 500 })
     }
 
-    return NextResponse.json({ message: 'Something went wrong.' }, { status: 500 })
+    return NextResponse.json({ message: 'Something went wrong.', error }, { status: 500 })
   }
 }
