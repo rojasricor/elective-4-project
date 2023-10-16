@@ -3,6 +3,7 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { db } from '@/libs/db'
+import { type User } from '@prisma/client'
 
 const handler = NextAuth({
   providers: [
@@ -53,10 +54,9 @@ const handler = NextAuth({
       return token
     },
     async session ({ session, token }) {
-      return {
-        ...session,
-        user: token.user
-      }
+      session.user = token.user as User
+
+      return session
     }
   }
 })
