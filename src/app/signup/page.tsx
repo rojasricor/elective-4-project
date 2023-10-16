@@ -41,7 +41,7 @@ function Signup (): React.ReactNode {
     } else if (status === 'authenticated' && session?.user?.document === '0000000000') {
       return redirect('/profile/admin')
     }
-  }, [status])
+  }, [status, session?.user?.document])
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
