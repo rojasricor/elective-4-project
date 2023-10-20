@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Team() {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white mt-10">
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
         <div className="text-center pb-12">
           <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-dark">

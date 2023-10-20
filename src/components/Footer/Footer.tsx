@@ -147,7 +147,8 @@ export default function Footer(): React.ReactNode {
       </div>
       <div>
         <p className="text-sm text-gray-400">
-          © 2023 Finanzas Educativas. Todos los derechos reservados.
+          © {new Date().getFullYear()} Finanzas Educativas. Todos los derechos
+          reservados.
         </p>
       </div>
     </footer>
