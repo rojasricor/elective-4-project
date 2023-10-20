@@ -253,7 +253,7 @@ function Contact(): React.ReactNode {
                     name="message"
                     id="message"
                     placeholder="Asunto"
-                    className="w-100 h-20 mt-2 py-3 px-3 pl-12 rounded-lg bg-white dark:bg-gray-300 border border-gray-400 dark:border-gray-700 text-gray-600 font-semibold focus:border-indigo-700 focus:outline-none"
+                    className="w-100 h-20 mt-2 py-3 px-3 pl-12 rounded-lg bg-white dark:bg-gray-200 border border-gray-400 dark:border-gray-700 text-gray-400 font-semibold focus:border-indigo-700 focus:outline-none"
                   />
                 </div>
                 <div className="flex justify-center">

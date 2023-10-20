@@ -3,14 +3,14 @@ import { NextResponse } from 'next/server'
 import { signUpSchema } from '@/schemas/user.schema'
 import bcrypt from 'bcryptjs'
 
-export async function GET () {
+export async function GET() {
   const users = await db.user.findMany()
   console.log({ users })
 
   return NextResponse.json(users)
 }
 
-export async function POST (request: Request) {
+export async function POST(request: Request) {
   try {
     const body = await request.json()
 
@@ -29,7 +29,10 @@ export async function POST (request: Request) {
     })
 
     if (existingUserByDocument !== null) {
-      return NextResponse.json({ messsage: 'Document already exists' }, { status: 400 })
+      return NextResponse.json(
+        { messsage: 'Document already exists' },
+        { status: 400 }
+      )
     }
 
     const existingUserByEmail = await db.user.findUnique({
@@ -37,7 +40,10 @@ export async function POST (request: Request) {
     })
 
     if (existingUserByEmail !== null) {
-      return NextResponse.json({ messsage: 'Email already exists' }, { status: 400 })
+      return NextResponse.json(
+        { messsage: 'Email already exists' },
+        { status: 400 }
+      )
     }
 
     const hashedPassword = await bcrypt.hash(password, 12)
@@ -55,10 +61,13 @@ export async function POST (request: Request) {
 
     const { password: _, ...user } = newUser
 
-    return NextResponse.json({
-      user,
-      message: 'User created successfully'
-    }, { status: 201 })
+    return NextResponse.json(
+      {
+        user,
+        message: 'User created successfully'
+      },
+      { status: 201 }
+    )
   } catch (error: any) {
     console.log({ error })
 
@@ -66,13 +75,18 @@ export async function POST (request: Request) {
       const errorsMessages: Record<string, string> = {}
       const { errors } = error
 
-      errors.forEach(({ message, path }: { message: string, path: string[] }) => {
-        errorsMessages[path.join('')] = message
-      })
+      errors.forEach(
+        ({ message, path }: { message: string; path: string[] }) => {
+          errorsMessages[path.join('')] = message
+        }
+      )
 
       return NextResponse.json(errorsMessages, { status: 500 })
     }
 
-    return NextResponse.json({ message: 'Something went wrong.', error }, { status: 500 })
+    return NextResponse.json(
+      { message: 'Something went wrong.', error },
+      { status: 500 }
+    )
   }
 }

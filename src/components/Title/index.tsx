@@ -6,17 +6,18 @@ interface TitleProps {
   text: string
 }
 
-function Title ({ text }: TitleProps): React.ReactNode {
+function Title({ text }: TitleProps): React.ReactNode {
   const { data: session, status } = useSession()
 
   return (
     <span className="typewriter-container">
-      <div className="typewriter-text" style={{
-        color: status === 'authenticated' ? '#008aae' : '#79ad34'
-      }}>
-        {
-          status === 'authenticated' ? `${session?.user?.first_name}!` : text
-        }
+      <div
+        className="typewriter-text"
+        style={{
+          color: status === 'authenticated' ? '#008aae' : '#79ad34'
+        }}
+      >
+        {status === 'authenticated' ? `${session?.user?.first_name}!` : text}
       </div>
     </span>
   )
