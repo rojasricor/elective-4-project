@@ -23,7 +23,7 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
-    "format": "prettier ./src/ --write"
+    "format": "prettier ./src/ -w"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.4.2",

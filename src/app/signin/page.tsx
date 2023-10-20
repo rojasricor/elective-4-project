@@ -11,12 +11,17 @@ import { signIn, useSession } from 'next-auth/react'
 import { useRouter, redirect } from 'next/navigation'
 import Title from '@/components/Title'
 
-export default function Signin () {
-  const [isLoading, setIsLoading] = useState(false)
+export default function Signin() {
+  const [_isLoading, setIsLoading] = useState(false)
   const { data: session, status } = useSession()
   const router = useRouter()
 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FieldValues>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm<FieldValues>({
     defaultValues: {
       document: '',
       password: ''
@@ -24,9 +29,15 @@ export default function Signin () {
   })
 
   useEffect(() => {
-    if (status === 'authenticated' && session?.user?.document !== '0000000000') {
+    if (
+      status === 'authenticated' &&
+      session?.user?.document !== '0000000000'
+    ) {
       return redirect('/profile/user')
-    } else if (status === 'authenticated' && session?.user?.document === '0000000000') {
+    } else if (
+      status === 'authenticated' &&
+      session?.user?.document === '0000000000'
+    ) {
       return redirect('/profile/admin')
     }
   }, [status, session?.user?.document])
@@ -70,10 +81,8 @@ export default function Signin () {
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8 mb-10 py-20">
       <div className="sm:mx-auto sm:w-full sm:max-w-xl md:max-w-3xl">
-        <h2
-          className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900"
-        >
-          Iniciar sesion en <Title text='¡Finanzas Educativas!' />
+        <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
+          Iniciar sesion en <Title text="¡Finanzas Educativas!" />
         </h2>
       </div>
       <div className="flex justify-center items-center gap-16 mt-10">
@@ -93,16 +102,27 @@ export default function Signin () {
               <input
                 type="text"
                 id="document"
-                {...register('document', { required: 'El número de identificación es un campo obligatorio!' })}
+                {...register('document', {
+                  required:
+                    'El número de identificación es un campo obligatorio!'
+                })}
                 className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs
-                ${errors.document !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
-                ${errors.document !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
+                ${
+                  errors.document !== undefined
+                    ? 'ring-rose-500'
+                    : 'border-gray-300'
+                }}
+                ${
+                  errors.document !== undefined
+                    ? 'focus:outline-rose-500'
+                    : 'focus:outline-[#008aae]'
+                }`}
               />
-              {
-                errors.document !== undefined && (
-                  <p className="my-2 text-sm text-rose-500">{errors.document.message as any}</p>
-                )
-              }
+              {errors.document !== undefined && (
+                <p className="my-2 text-sm text-rose-500">
+                  {errors.document.message as any}
+                </p>
+              )}
             </div>
 
             <div className="mb-1">
@@ -115,17 +135,27 @@ export default function Signin () {
               <input
                 type="password"
                 id="password"
-                {...register('password', { required: 'La contraseña es un campo obligatorio!' })}
+                {...register('password', {
+                  required: 'La contraseña es un campo obligatorio!'
+                })}
                 className={`block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-[#008aae] sm:max-w-xs"
                 autoComplete="off
-                ${errors.password !== undefined ? 'ring-rose-500' : 'border-gray-300'}}
-                ${errors.password !== undefined ? 'focus:outline-rose-500' : 'focus:outline-[#008aae]'}`}
+                ${
+                  errors.password !== undefined
+                    ? 'ring-rose-500'
+                    : 'border-gray-300'
+                }}
+                ${
+                  errors.password !== undefined
+                    ? 'focus:outline-rose-500'
+                    : 'focus:outline-[#008aae]'
+                }`}
               />
-              {
-                errors.password !== undefined && (
-                  <p className="mt-2 text-sm text-rose-500">{errors.password.message as any}</p>
-                )
-              }
+              {errors.password !== undefined && (
+                <p className="mt-2 text-sm text-rose-500">
+                  {errors.password.message as any}
+                </p>
+              )}
             </div>
             {/* <div className="mb-4 flex items-center">
               <input

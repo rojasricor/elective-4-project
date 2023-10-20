@@ -1,4 +1,4 @@
-const Credit: React.FC = (props: React.SVGProps<SVGSVGElement>) => {
+const Credit: React.FC = (_props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -16,7 +16,7 @@ export const metadata = {
   keywords: 'Educacion, finanzas, enseñanzas, ahorro,'
 }
 
-export default async function RootLayout ({
+export default async function RootLayout({
   children
 }: {
   children: React.ReactNode

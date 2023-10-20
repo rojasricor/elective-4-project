@@ -1,14 +1,13 @@
 'use client'
 
 import Head from 'next/head'
-import Image from 'next/image'
 import { useState } from 'react'
 import ArrowDown from './icons/ArrowDown'
 import ArrowUp from './icons/ArrowUp'
 import { AboutUs, Mision, Vision } from './svgs'
 import Team from './team/team'
 
-function About (): React.ReactNode {
+function About(): React.ReactNode {
   const [viewMoreInfoVision, setViewMoreInfoVision] = useState(false)
 
   const handleViewMoreInfoVision = () => {

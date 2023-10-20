@@ -10,11 +10,20 @@ const handler = NextAuth({
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        document: { label: 'Document', type: 'text', placeholder: 'Put your document' },
-        password: { label: 'Password', type: 'password', placeholder: 'Put your password' }
+        document: {
+          label: 'Document',
+          type: 'text',
+          placeholder: 'Put your document'
+        },
+        password: {
+          label: 'Password',
+          type: 'password',
+          placeholder: 'Put your password'
+        }
       },
-      async authorize (credentials, _) {
-        if (credentials?.document === null || credentials?.password === null) return null
+      async authorize(credentials, _) {
+        if (credentials?.document === null || credentials?.password === null)
+          return null
 
         const existingUser = await db.user.findUnique({
           where: { document: credentials?.document }
@@ -22,7 +31,10 @@ const handler = NextAuth({
 
         if (existingUser === null) return null
 
-        const passwordMatch = await bcrypt.compare(credentials?.password ?? '', existingUser.password)
+        const passwordMatch = await bcrypt.compare(
+          credentials?.password ?? '',
+          existingUser.password
+        )
 
         if (!passwordMatch) return null
 
@@ -49,11 +61,11 @@ const handler = NextAuth({
   },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async jwt ({ token, user }) {
+    async jwt({ token, user }) {
       if (user !== undefined) token.user = user
       return token
     },
-    async session ({ session, token }) {
+    async session({ session, token }) {
       session.user = token.user as User
 
       return session
