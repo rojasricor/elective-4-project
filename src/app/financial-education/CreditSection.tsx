@@ -89,56 +89,56 @@ export default function CreditSection() {
             <Image
               src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-              className="rounded-lg bg-gray-100"
+              className="rounded-lg bg-gray-100 hover:opacity-80 transition-opacity cursor-pointer"
               width={600}
               height={400}
             />
             <Image
               src="https://images.pexels.com/photos/2988232/pexels-photo-2988232.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Top down view of walnut card tray with embedded magnets and card groove."
-              className="rounded-lg bg-gray-100"
+              className="rounded-lg bg-gray-100 hover:opacity-80 transition-opacity cursor-pointer"
               width={600}
               height={400}
             />
             <Image
               src="https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
-              className="rounded-lg bg-gray-100"
+              className="rounded-lg bg-gray-100 hover:opacity-80 transition-opacity cursor-pointer"
               width={600}
               height={400}
             />
             <Image
               src="https://images.pexels.com/photos/210679/pexels-photo-210679.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
-              className="rounded-lg bg-gray-100"
+              className="rounded-lg bg-gray-100 hover:opacity-80 transition-opacity cursor-pointer"
               width={600}
               height={400}
             />
             <Image
               src="https://images.pexels.com/photos/366551/pexels-photo-366551.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
-              className="rounded-lg bg-gray-100"
+              className="rounded-lg bg-gray-100 hover:opacity-80 transition-opacity cursor-pointer"
               width={600}
               height={400}
             />
             <Image
               src="https://images.pexels.com/photos/164501/pexels-photo-164501.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
-              className="rounded-lg bg-gray-100"
+              className="rounded-lg bg-gray-100 hover:opacity-80 transition-opacity cursor-pointer"
               width={600}
               height={400}
             />
             <Image
               src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Side of walnut card tray with card groove and recessed card area."
-              className="rounded-lg bg-gray-100"
+              className="rounded-lg bg-gray-100 hover:opacity-80 transition-opacity cursor-pointer"
               width={600}
               height={400}
             />
             <Image
               src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
-              className="rounded-lg bg-gray-100"
+              className="rounded-lg bg-gray-100 hover:opacity-80 transition-opacity cursor-pointer"
               width={600}
               height={400}
             />
