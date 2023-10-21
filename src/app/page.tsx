@@ -199,7 +199,6 @@ async function Home() {
           </dl>
         </div>
 
-        {/* BUTTON CONTACT AND BOT */}
         <ContactBot />
       </div>
     </>

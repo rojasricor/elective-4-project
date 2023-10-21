@@ -8,9 +8,7 @@ const DashboardPage = async () => {
     return redirect('/profile/user')
   }
 
-  return (
-    <div>DashboardPage</div>
-  )
+  return <div>DashboardPage</div>
 }
 
 export default DashboardPage

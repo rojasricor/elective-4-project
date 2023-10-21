@@ -8,9 +8,7 @@ const HelpAdminPage = async () => {
     return redirect('/profile/user')
   }
 
-  return (
-    <div>HelpAdminPage</div>
-  )
+  return <div>HelpAdminPage</div>
 }
 
 export default HelpAdminPage

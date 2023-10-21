@@ -5,7 +5,7 @@ interface AboutListMobileProps {
   handleResetMenus: () => void
 }
 
-function AboutListMobile ({
+function AboutListMobile({
   handleResetMenus
 }: AboutListMobileProps): React.ReactNode {
   return (

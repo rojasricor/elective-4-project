@@ -3,9 +3,7 @@
 import { Toaster } from 'react-hot-toast'
 
 const ToasterProvider = () => {
-  return (
-    <Toaster />
-  )
+  return <Toaster />
 }
 
 export default ToasterProvider

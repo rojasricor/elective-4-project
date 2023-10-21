@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import ArrowDown from './icons/ArrowDown'
 import { AboutUs, Mision, Vision } from './svgs'
-import Team from './team/team'
+import Team from './Team'
 import VisionToggle from './VisionToggle'
 
 function About(): React.ReactNode {

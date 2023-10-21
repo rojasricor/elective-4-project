@@ -18,7 +18,7 @@ import ItemListDropDown from './ItemListDropDown'
 import MobileMenu from './MobileMenu'
 import { useSession, signOut } from 'next-auth/react'
 
-function NavBar (): React.ReactNode {
+function NavBar(): React.ReactNode {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false)
   const [isSubMenuMobileOpen, setIsSubMenuMobileOpen] = useState(false)
@@ -52,11 +52,13 @@ function NavBar (): React.ReactNode {
         <div className="flex lg:flex-1">
           <Link
             href={
-              status === 'authenticated' && session?.user?.document !== '0000000000'
+              status === 'authenticated' &&
+              session?.user?.document !== '0000000000'
                 ? '/profile/user'
-                : status === 'authenticated' && session?.user?.document === '0000000000'
-                  ? '/profile/admin/home-preview'
-                  : '/'
+                : status === 'authenticated' &&
+                  session?.user?.document === '0000000000'
+                ? '/profile/admin/home-preview'
+                : '/'
             }
             className="-m-1.5 p-1.5"
             onClick={handleResetMenus}
@@ -70,14 +72,16 @@ function NavBar (): React.ReactNode {
             />
           </Link>
         </div>
-        <div className='hidden lg:flex lg:gap-x-12'>
+        <div className="hidden lg:flex lg:gap-x-12">
           <Link
             href={
-              status === 'authenticated' && session?.user?.document !== '0000000000'
+              status === 'authenticated' &&
+              session?.user?.document !== '0000000000'
                 ? '/profile/user'
-                : status === 'authenticated' && session?.user?.document === '0000000000'
-                  ? '/profile/admin/home-preview'
-                  : '/'
+                : status === 'authenticated' &&
+                  session?.user?.document === '0000000000'
+                ? '/profile/admin/home-preview'
+                : '/'
             }
             className="text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
             onClick={handleResetMenus}
@@ -102,7 +106,7 @@ function NavBar (): React.ReactNode {
           <div className="relative">
             <button
               type="button"
-              className="flex items-center gap-x-1 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
+              className="flex items-center gap-x-1 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34] animate-pulse"
               aria-expanded="false"
               onClick={handleMenuOpen}
             >
@@ -154,51 +158,51 @@ function NavBar (): React.ReactNode {
             </div>
           </div>
         </div>
-        <div className={`hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-12 ${(status === 'authenticated' && session?.user?.document === '0000000000') && 'lg:w-40 lg:ml-20'}`}>
-          {
-            status !== 'authenticated'
-              ? (
-              <>
+        <div
+          className={`hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-12 ${
+            status === 'authenticated' &&
+            session?.user?.document === '0000000000' &&
+            'lg:w-40 lg:ml-20'
+          }`}
+        >
+          {status !== 'authenticated' ? (
+            <>
+              <Link
+                href="/signup"
+                className="text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
+                onClick={handleResetMenus}
+              >
+                Registrarse
+              </Link>
+              <Link
+                href="/signin"
+                className="flex justify-center items-center gap-2 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
+                onClick={handleResetMenus}
+              >
+                Ingresar
+                <LogInIcon />
+              </Link>
+            </>
+          ) : (
+            <>
+              {session?.user?.document === '0000000000' && (
                 <Link
-                  href="/signup"
-                  className="text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
-                  onClick={handleResetMenus}
-                >
-                  Registrarse
-                </Link>
-                <Link
-                  href="/signin"
+                  href="/profile/admin"
                   className="flex justify-center items-center gap-2 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
-                  onClick={handleResetMenus}
                 >
-                  Ingresar
-                  <LogInIcon />
+                  Panel Administrador
+                  <AdminIcon />
                 </Link>
-              </>
-                )
-              : (
-                <>
-                  {
-                    session?.user?.document === '0000000000' && (
-                      <Link
-                        href='/profile/admin'
-                        className="flex justify-center items-center gap-2 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
-                      >
-                          Panel Administrador
-                        <AdminIcon />
-                      </Link>
-                    )
-                  }
-                  <button
-                    className="flex justify-center items-center gap-2 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
-                    onClick={handleCloseSession}
-                  >
-                      Cerrar Sesión
-                    <LogInIcon />
-                  </button>
-                </>
-                )
-          }
+              )}
+              <button
+                className="flex justify-center items-center gap-2 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
+                onClick={handleCloseSession}
+              >
+                Cerrar Sesión
+                <LogInIcon />
+              </button>
+            </>
+          )}
         </div>
         <button
           className="lg:hidden hover:text-[#79ad34]"
