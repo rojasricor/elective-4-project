@@ -9,7 +9,7 @@ export default function LoadingPage() {
         height={60}
         alt="money"
         src="/money.png"
-        className="rounded-full animate-pulse"
+        className="rounded-full"
       />
     </div>
   )

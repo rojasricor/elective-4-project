@@ -2,7 +2,7 @@ import Aside from '@/components/Aside'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Finanzas Educativas | Admin'
+  title: 'Finanzas Educativas | Perfíl'
 }
 
 export default async function RootLayout({

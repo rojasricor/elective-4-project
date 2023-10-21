@@ -1,16 +1,16 @@
-import Head from 'next/head'
-import ArrowDown from './icons/ArrowDown'
-import { AboutUs, Mision, Vision } from './svgs'
+import { Metadata } from 'next'
 import Team from './Team'
 import VisionToggle from './VisionToggle'
+import ArrowDown from './icons/ArrowDown'
+import { AboutUs, Mision, Vision } from './svgs'
+
+export const metadata: Metadata = {
+  title: 'Finanzas Educativas | Sobre Nosotros'
+}
 
 function About(): React.ReactNode {
   return (
     <>
-      <Head>
-        <title>Finanzas Educativas | Nosotros</title>
-      </Head>
-
       <div id="quienesSomos" className="w-5 h-5 mt-[-70px]" />
       <main className="px-8 md:px-16 py-40">
         <section className="w-full md:flex md:justify-center md:items-center md:gap-16 mt-5">

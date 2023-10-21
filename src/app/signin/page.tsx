@@ -1,8 +1,13 @@
 import Title from '@/components/Title'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import SigninForm from './SigninForm'
 import SignInGif from './gifs/signIn.gif'
+
+export const metadata: Metadata = {
+  title: 'Finanzas Educativas | Iniciar Sesión'
+}
 
 export default function Signin() {
   return (

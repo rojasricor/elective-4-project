@@ -1,19 +1,22 @@
-import NavBar from '@/components/Navbar'
+import pkg from '@/../package.json'
 import Footer from '@/components/Footer/Footer'
+import NavBar from '@/components/Navbar'
+import SessionProviderContext from '@/providers/SessionProvider'
+import ToasterProvider from '@/providers/ToasterProvider'
+import { Metadata } from 'next'
 import { Oswald } from 'next/font/google'
 import './Global.css'
-import ToasterProvider from '@/providers/ToasterProvider'
-import SessionProviderContext from '@/providers/SessionProvider'
 
 const oswald = Oswald({
   subsets: ['latin'],
   preload: false
 })
 
-export const metadata = {
-  title: 'Educacion Finaciera | Home',
-  description: 'Educational for Finances',
-  keywords: 'Educacion, finanzas, enseñanzas, ahorro,'
+export const metadata: Metadata = {
+  title: 'Finanzas Educativas | Bienvenida',
+  description: pkg.description,
+  keywords: pkg.keywords,
+  authors: pkg.contributors
 }
 
 export default async function RootLayout({
