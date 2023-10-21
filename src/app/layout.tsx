@@ -13,7 +13,10 @@ const oswald = Oswald({
 })
 
 export const metadata: Metadata = {
-  title: 'Finanzas Educativas | Bienvenida',
+  title: 'Finanzas Educativas | Bienvenidos',
+  generator: 'Next JS',
+  creator: 'ITFIP Development Team',
+  publisher: 'ITFIP Development Team',
   description: pkg.description,
   keywords: pkg.keywords,
   authors: pkg.contributors
@@ -25,7 +28,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className={oswald.className}>
+    <html lang="es" className={oswald.className}>
       <body>
         <SessionProviderContext>
           <NavBar />
