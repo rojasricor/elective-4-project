@@ -6,12 +6,10 @@ interface SessionProviderProps {
   children: React.ReactNode
 }
 
-const SessionProviderContext: React.FC<SessionProviderProps> = ({ children }) => {
-  return (
-    <SessionProvider>
-      {children}
-    </SessionProvider>
-  )
+const SessionProviderContext: React.FC<SessionProviderProps> = ({
+  children
+}) => {
+  return <SessionProvider>{children}</SessionProvider>
 }
 
 export default SessionProviderContext

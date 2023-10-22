@@ -40,7 +40,7 @@ const features = [
   }
 ]
 
-export default function SavingSection () {
+export default function SavingSection() {
   return (
     <div className="bg-white py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

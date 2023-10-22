@@ -1,4 +1,4 @@
-export default function Expense () {
+export default function Expense() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

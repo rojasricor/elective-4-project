@@ -3,35 +3,28 @@
 @tailwind utilities;
 
 .typewriter-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  /* height: 100vh; */
-  overflow: hidden;
-  /* background-color: #000; */
-  margin: 0;
+  @apply flex justify-center items-center flex-wrap overflow-hidden m-0;
 }
 
 .typewriter-text {
-  /* font-size: 2em; */
-  white-space: nowrap;
-  overflow: hidden;
-  /* border-right: 2px solid transparent; */
-  animation: typing 3s steps(40) infinite, blink-caret 0.75s step-end infinite;
+  @apply whitespace-nowrap overflow-hidden;
+  animation:
+    typing 3s steps(40) infinite,
+    blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  0% {
-    width: 0;
+  from {
+    @apply w-0;
   }
-  100% {
-    width: 100%;
+  to {
+    @apply w-full;
   }
 }
 
 @keyframes blink-caret {
-  from, to {
-    border-color: transparent;
+  from,
+  to {
+    @apply border-transparent;
   }
 }

@@ -5,7 +5,11 @@ interface AboutListMobileProps {
   handleResetMenus: () => void
 }
 
+<<<<<<< HEAD
 export default function AboutListMobile ({
+=======
+function AboutListMobile({
+>>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
   handleResetMenus
 }: AboutListMobileProps): React.ReactNode {
   return (

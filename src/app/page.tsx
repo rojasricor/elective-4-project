@@ -1,18 +1,11 @@
-import Image from 'next/image'
-import ContactBot from './contact/ContactBot'
-import Link from 'next/link'
 import Title from '@/components/Title'
 import { getServerSession } from 'next-auth/next'
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
+import ContactBot from './contact/ContactBot'
 
-async function Home () {
+async function Home() {
   const session = await getServerSession()
-
-  // const stats = [
-  //   { id: 1, name: 'Transacciones cada 24 horas', value: '44 millones' },
-  //   { id: 2, name: 'Activos bajo tenencia', value: '$119 trillones' },
-  //   { id: 3, name: 'Nuevos usuarios anualmente', value: '46,000' }
-  // ]
 
   if (session !== null && session?.user?.email !== 'admin@gmail.com') {
     return redirect('profile/user')
@@ -27,7 +20,10 @@ async function Home () {
           <div className="flex mb-8 justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Aprender un poco sobre finanzas.{' '}
-              <Link href="/financial-education" className="font-semibold text-[#008aae]">
+              <Link
+                href="/financial-education"
+                className="font-semibold text-[#008aae]"
+              >
                 <span className="absolute inset-0" aria-hidden="true" />
                 Leer más <span aria-hidden="true">&rarr;</span>
               </Link>
@@ -35,11 +31,16 @@ async function Home () {
           </div>
           <div className="text-center">
             <h1 className="mb-5 sm:mb-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+<<<<<<< HEAD
               Bienvenido a <Title text='¡Finanzas Educativas!' isTextStatic />
+=======
+              Bienvenido a <Title text="¡Finanzas Educativas!" />
+>>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
             </h1>
             <p className="text-lg leading-8 text-gray-600">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-              fugiat veniam occaecat fugiat aliqua.
+              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+              fugiat aliqua.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
@@ -48,7 +49,10 @@ async function Home () {
               >
                 Registrarse
               </Link>
-              <Link href="/signin" className="text-sm font-semibold leading-6 text-gray-900 hover:bg-[#008aae] transition-colors duration-300 rounded-md px-3.5 py-2 hover:text-white shadow-md">
+              <Link
+                href="/signin"
+                className="text-sm font-semibold leading-6 text-gray-900 hover:bg-[#008aae] transition-colors duration-300 rounded-md px-3.5 py-2 hover:text-white shadow-md"
+              >
                 Ingresar <span aria-hidden="true">→</span>
               </Link>
             </div>
@@ -82,7 +86,7 @@ async function Home () {
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
-              <div className="h-2 b g-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
+              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300"></div>
             </div>
@@ -107,7 +111,7 @@ async function Home () {
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
-              <div className="h-2 b g-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
+              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300"></div>
             </div>
@@ -132,7 +136,7 @@ async function Home () {
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
-              <div className="h-2 b g-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
+              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300 mb-2.5"></div>
               <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-300"></div>
             </div>
@@ -199,7 +203,6 @@ async function Home () {
           </dl>
         </div>
 
-        {/* BUTTON CONTACT AND BOT */}
         <ContactBot />
       </div>
     </>

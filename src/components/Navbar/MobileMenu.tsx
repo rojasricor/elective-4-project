@@ -3,7 +3,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import AboutListMobile from './AboutListMobile'
+<<<<<<< HEAD
 import { ArrowUpIcon, ArrowDownIcon, CloseIcon, LogInIcon, AdminIcon, UserIcon } from './icons'
+=======
+import {
+  ArrowUpIcon,
+  ArrowDownIcon,
+  CloseIcon,
+  LogInIcon,
+  AdminIcon
+} from './icons'
+>>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
 import { useSession, signOut } from 'next-auth/react'
 import AdminPanelMobile from './AdminPanelMobile'
 
@@ -16,7 +26,11 @@ interface MobileMenuProps {
   handleResetMenus: () => void
 }
 
+<<<<<<< HEAD
 export default function MobileMenu ({
+=======
+function MobileMenu({
+>>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
   isSubMenuMobileOpen,
   isSubMenuAdminPanelOpen,
   handleMenuMobileOpen,
@@ -36,11 +50,19 @@ export default function MobileMenu ({
         <div className="flex items-center justify-between">
           <Link
             href={
-              status === 'authenticated' && session?.user?.document !== '0000000000'
+              status === 'authenticated' &&
+              session?.user?.document !== '0000000000'
                 ? '/profile/user'
+<<<<<<< HEAD
                 : status === 'authenticated' && session?.user?.document === '0000000000'
                   ? '/profile/admin'
                   : '/'
+=======
+                : status === 'authenticated' &&
+                  session?.user?.document === '0000000000'
+                ? '/profile/admin/home-preview'
+                : '/'
+>>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
             }
             className="-m-1.5 p-1.5"
             onClick={handleResetMenus}
@@ -66,11 +88,13 @@ export default function MobileMenu ({
             <div className="space-y-2 py-6">
               <Link
                 href={
-                  status === 'authenticated' && session?.user?.document !== '0000000000'
+                  status === 'authenticated' &&
+                  session?.user?.document !== '0000000000'
                     ? '/profile/user'
-                    : status === 'authenticated' && session?.user?.document === '0000000000'
-                      ? '/profile/admin/home-preview'
-                      : '/'
+                    : status === 'authenticated' &&
+                      session?.user?.document === '0000000000'
+                    ? '/profile/admin/home-preview'
+                    : '/'
                 }
                 className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
                 onClick={handleResetMenus}
@@ -95,7 +119,7 @@ export default function MobileMenu ({
               <div className="-mx-3">
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
+                  className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34] animate-pulse"
                   aria-controls="disclosure-1"
                   aria-expanded="false"
                   onClick={handleSubMenuMobileOpen}
@@ -109,26 +133,25 @@ export default function MobileMenu ({
               </div>
             </div>
             <div className="py-6">
-            {
-              status !== 'authenticated'
-                ? (
+              {status !== 'authenticated' ? (
                 <>
                   <Link
-                  href="/signup"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
-                  onClick={handleResetMenus}
-                >
-                  Registrarse
-                </Link>
-                <Link
-                  href="/signin"
-                  className="-mx-3 rounded-lg px-3 flex items-center gap-2 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
-                  onClick={handleResetMenus}
-                >
-                  Ingresar
-                  <LogInIcon />
-                </Link>
+                    href="/signup"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
+                    onClick={handleResetMenus}
+                  >
+                    Registrarse
+                  </Link>
+                  <Link
+                    href="/signin"
+                    className="-mx-3 rounded-lg px-3 flex items-center gap-2 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
+                    onClick={handleResetMenus}
+                  >
+                    Ingresar
+                    <LogInIcon />
+                  </Link>
                 </>
+<<<<<<< HEAD
                   )
                 : (
                   <>
@@ -183,6 +206,27 @@ export default function MobileMenu ({
                   </>
                   )
             }
+=======
+              ) : (
+                <>
+                  <Link
+                    href="/profile/admin"
+                    className="-mx-3 flex items-center justify-between rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
+                    onClick={handleResetMenus}
+                  >
+                    Panel Administrador
+                    <AdminIcon />
+                  </Link>
+                  <button
+                    className="-mx-3 flex w-[calc(100%+23px)] items-center justify-between rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
+                    onClick={handleCloseSession}
+                  >
+                    Cerrar Sesión
+                    <LogInIcon />
+                  </button>
+                </>
+              )}
+>>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
             </div>
           </div>
         </div>

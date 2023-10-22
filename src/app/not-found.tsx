@@ -1,13 +1,8 @@
-import {
-  faContao,
-  faHackerNews,
-  faInstagramSquare,
-  faLinkedin
-} from '@fortawesome/free-brands-svg-icons'
+import { faContao, faHackerNews } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Finanzas Educativas | Página No Encontrada'
@@ -15,8 +10,6 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   const Contacto = faContao
-  const Linkedin = faLinkedin
-  const Intelgran = faInstagramSquare
   const Youtube = faHackerNews
 
   return (

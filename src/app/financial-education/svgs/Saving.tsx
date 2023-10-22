@@ -1,4 +1,4 @@
-const Saving: React.FC = (props: React.SVGProps<SVGSVGElement>) => {
+const Saving: React.FC = (_props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

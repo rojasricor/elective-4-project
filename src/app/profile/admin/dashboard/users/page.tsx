@@ -8,9 +8,7 @@ const UsersPreviewPage = async () => {
     return redirect('/profile/user')
   }
 
-  return (
-    <div>UsersPreviewPage</div>
-  )
+  return <div>UsersPreviewPage</div>
 }
 
 export default UsersPreviewPage
