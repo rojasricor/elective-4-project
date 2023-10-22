@@ -12,7 +12,8 @@ import {
   QuestionIcon,
   VisionIcon,
   TeamIcon,
-  AdminIcon
+  AdminIcon,
+  UserIcon
 } from './icons'
 import ItemListDropDown from './ItemListDropDown'
 import MobileMenu from './MobileMenu'
@@ -21,6 +22,7 @@ import { useSession, signOut } from 'next-auth/react'
 function NavBar (): React.ReactNode {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false)
+  const [isSubMenuAdminPanelOpen, setIsSubMenuAdminPanelOpen] = useState(false)
   const [isSubMenuMobileOpen, setIsSubMenuMobileOpen] = useState(false)
   const { data: session, status } = useSession()
 
@@ -36,10 +38,15 @@ function NavBar (): React.ReactNode {
     setIsSubMenuMobileOpen(!isSubMenuMobileOpen)
   }
 
+  const handleSubMenuAdminPanelOpen = (): void => {
+    setIsSubMenuAdminPanelOpen(!isSubMenuAdminPanelOpen)
+  }
+
   const handleResetMenus = (): void => {
     setIsMenuOpen(false)
     setIsMenuMobileOpen(false)
     setIsSubMenuMobileOpen(false)
+    setIsSubMenuAdminPanelOpen(false)
   }
 
   const handleCloseSession = (): void => {
@@ -55,7 +62,7 @@ function NavBar (): React.ReactNode {
               status === 'authenticated' && session?.user?.document !== '0000000000'
                 ? '/profile/user'
                 : status === 'authenticated' && session?.user?.document === '0000000000'
-                  ? '/profile/admin/home-preview'
+                  ? '/profile/admin'
                   : '/'
             }
             className="-m-1.5 p-1.5"
@@ -179,15 +186,25 @@ function NavBar (): React.ReactNode {
               : (
                 <>
                   {
-                    session?.user?.document === '0000000000' && (
+                    session?.user?.document === '0000000000'
+                      ? (
                       <Link
-                        href='/profile/admin'
+                        href='/profile/admin/dashboard'
                         className="flex justify-center items-center gap-2 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
                       >
                           Panel Administrador
                         <AdminIcon />
                       </Link>
-                    )
+                        )
+                      : (
+                      <Link
+                        href='/profile/user/personal-information'
+                        className="flex justify-center items-center gap-2 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
+                      >
+                          Perfil
+                        <UserIcon />
+                      </Link>
+                        )
                   }
                   <button
                     className="flex justify-center items-center gap-2 text-base font-bold leading-6 text-gray-900 hover:text-[#79ad34]"
@@ -211,8 +228,10 @@ function NavBar (): React.ReactNode {
       {isMenuMobileOpen && (
         <MobileMenu
           isSubMenuMobileOpen={isSubMenuMobileOpen}
+          isSubMenuAdminPanelOpen={isSubMenuAdminPanelOpen}
           handleMenuMobileOpen={handleMenuMobileOpen}
           handleSubMenuMobileOpen={handleSubMenuMobileOpen}
+          handleSubMenuAdminPanelOpen={handleSubMenuAdminPanelOpen}
           handleResetMenus={handleResetMenus}
         />
       )}

@@ -18,14 +18,14 @@ export default function Aside (): React.ReactNode {
             <ul className="space-y-2 pb-2">
               <li>
                 <ItemList
-                  href="/profile/admin/dashboard"
+                  href="/profile/admin/dashboard/page-content"
                   Icon={DashboardIcon}
-                  title="Panel"
+                  title="Contenido"
                 />
               </li>
               <li>
                 <ItemList
-                  href="/profile/admin/users"
+                  href="/profile/admin/dashboard/users"
                   Icon={UserIcon}
                   title="Usuarios"
                 />
@@ -33,7 +33,7 @@ export default function Aside (): React.ReactNode {
             </ul>
             <div className="space-y-2 pt-2">
               <ItemList
-                href="/profile/admin/help"
+                href="/profile/admin/dashboard/help"
                 Icon={HelpIcon}
                 title="Ayuda"
               />

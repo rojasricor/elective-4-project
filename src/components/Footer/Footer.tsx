@@ -26,18 +26,22 @@ export default function Footer (): React.ReactNode {
   }
 
   return (
-    <footer className={`flex flex-col justify-center items-center gap-10 py-10 border-t border-[#0f172a1a] ${pathname.includes('/profile/admin') && 'lg:ml-64'}`}>
+    <footer className={`flex flex-col justify-center items-center gap-10 py-10 border-t border-[#0f172a1a] ${pathname.includes('/profile/admin/dashboard') && 'lg:ml-64'}`}>
       <div>
         <ul className="grid grid-cols-2 grid-rows-3 gap-5 sm:flex sm:gap-8 text-gray-400">
-          <li>
+          <li className='flex justify-center items-center'>
             <Link
               className="hover:text-[#79ad34] transition-all"
-              href={status === 'authenticated' ? '/profile/user' : '/'}
+              href={status === 'authenticated' && session?.user?.document !== '0000000000'
+                ? '/profile/user'
+                : status === 'authenticated' && session?.user?.document === '0000000000'
+                  ? '/profile/admin/home-preview'
+                  : '/'}
             >
               Inicio
             </Link>
           </li>
-          <li>
+          <li className='flex justify-center items-center'>
             <Link
               className="hover:text-[#79ad34] transition-all"
               href="/financial-education"
@@ -45,7 +49,7 @@ export default function Footer (): React.ReactNode {
               Educación Financiera
             </Link>
           </li>
-          <li>
+          <li className='flex justify-center items-center'>
             <Link
               className="hover:text-[#79ad34] transition-all"
               href="/contact"
@@ -53,7 +57,7 @@ export default function Footer (): React.ReactNode {
               Contacto
             </Link>
           </li>
-          <li>
+          <li className='flex justify-center items-center'>
             <Link className="hover:text-[#79ad34] transition-all" href="/about">
               Nosotros
             </Link>
@@ -61,7 +65,7 @@ export default function Footer (): React.ReactNode {
           {status !== 'authenticated'
             ? (
             <>
-              <li>
+              <li className='flex justify-center items-center'>
                 <Link
                   className="hover:text-[#79ad34] transition-all"
                   href="/signup"
@@ -69,7 +73,7 @@ export default function Footer (): React.ReactNode {
                   Registrarse
                 </Link>
               </li>
-              <li>
+              <li className='flex justify-center items-center'>
                 <Link
                   className="hover:text-[#79ad34] transition-all"
                   href="/signin"
@@ -81,7 +85,7 @@ export default function Footer (): React.ReactNode {
               )
             : (
             <button
-              className="hover:text-[#79ad34] transition-all"
+              className="hover:text-[#79ad34] transition-all col-span-2"
               onClick={handleCloseSession}
             >
               Cerrar Sesión

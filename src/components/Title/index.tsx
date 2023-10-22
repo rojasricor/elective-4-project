@@ -4,18 +4,19 @@ import { useSession } from 'next-auth/react'
 
 interface TitleProps {
   text: string
+  isTextStatic: boolean
 }
 
-function Title ({ text }: TitleProps): React.ReactNode {
+function Title ({ text, isTextStatic }: TitleProps): React.ReactNode {
   const { data: session, status } = useSession()
 
   return (
     <span className="typewriter-container">
       <div className="typewriter-text" style={{
-        color: status === 'authenticated' ? '#008aae' : '#79ad34'
+        color: status === 'authenticated' && !isTextStatic ? '#008aae' : '#79ad34'
       }}>
         {
-          status === 'authenticated' ? `${session?.user?.first_name}!` : text
+          status === 'authenticated' && !isTextStatic ? `${session?.user?.first_name}!` : text
         }
       </div>
     </span>

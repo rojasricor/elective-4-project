@@ -11,7 +11,7 @@ const oswald = Oswald({
 })
 
 export const metadata = {
-  title: 'Educacion Finaciera | Home',
+  title: 'Finanzas Educativas | Home',
   description: 'Educational for Finances',
   keywords: 'Educacion, finanzas, enseñanzas, ahorro,'
 }

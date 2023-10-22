@@ -1,46 +1,38 @@
 import Link from 'next/link'
-import { MisionIcon, QuestionIcon, TeamIcon, VisionIcon } from './icons'
+import { DashboardIcon, HelpIcon, UserIcon } from '../Aside/icons'
 
-interface AboutListMobileProps {
+interface AdminPanelMobileProps {
   handleResetMenus: () => void
 }
 
-export default function AboutListMobile ({
+export default function AdminPanelMobile ({
   handleResetMenus
-}: AboutListMobileProps): React.ReactNode {
+}: AdminPanelMobileProps): React.ReactNode {
   return (
-    <div className="mt-2 space-y-2" id="disclosure-1">
+    <div className="my-2 space-y-2" id="disclosure-1">
       <Link
-        href="/about/#quienesSomos"
+        href="/profile/admin/dashboard/page-content"
         className="group flex justify-between items-center gap-2 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
         onClick={handleResetMenus}
       >
-        ¿Quienes somos?
-        <QuestionIcon />
+        Contenido
+        <DashboardIcon />
       </Link>
       <Link
-        href="/about/#mision"
+        href="/profile/admin/dashboard/users"
         className="group flex justify-between items-center gap-2 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
         onClick={handleResetMenus}
       >
-        Misión
-        <MisionIcon />
+        Usuarios
+        <UserIcon />
       </Link>
       <Link
-        href="/about/#vision"
+        href="/profile/admin/dashboard/help"
         className="group flex justify-between items-center gap-2 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
         onClick={handleResetMenus}
       >
-        Visión
-        <VisionIcon />
-      </Link>
-      <Link
-        href="/about/#team"
-        className="group flex justify-between items-center gap-2 rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-[#79ad34]"
-        onClick={handleResetMenus}
-      >
-        Nuestro Equipo
-        <TeamIcon />
+        Ayuda
+        <HelpIcon />
       </Link>
     </div>
   )
