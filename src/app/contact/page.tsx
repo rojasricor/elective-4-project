@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Title from '@/components/Title'
 import Image from 'next/image'
 import ContactUsGif from './gifs/ContactUs.gif'
