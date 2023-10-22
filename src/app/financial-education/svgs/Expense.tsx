@@ -1,4 +1,4 @@
-export default function Expense() {
+const Expense: React.FC = (_props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -103,3 +103,5 @@ export default function Expense() {
     </svg>
   )
 }
+
+export default Expense

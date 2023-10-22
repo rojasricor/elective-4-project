@@ -18,7 +18,7 @@ export default function Footer(): React.ReactNode {
   const GithHub = faGithub
   const Instagram = faInstagramSquare
   const Youtube = faYoutube
-  const { data: _session, status } = useSession()
+  const { data: session, status } = useSession()
   const pathname = usePathname()
 
   const handleCloseSession = (): void => {
@@ -26,15 +26,11 @@ export default function Footer(): React.ReactNode {
   }
 
   return (
-<<<<<<< HEAD
-    <footer className={`flex flex-col justify-center items-center gap-10 py-10 border-t border-[#0f172a1a] ${pathname.includes('/profile/admin/dashboard') && 'lg:ml-64'}`}>
-=======
     <footer
       className={`flex flex-col justify-center items-center gap-10 py-10 border-t border-[#0f172a1a] ${
         pathname.includes('/profile/admin') && 'lg:ml-64'
       }`}
     >
->>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
       <div>
         <ul className="grid grid-cols-2 grid-rows-3 gap-5 sm:flex sm:gap-8 text-gray-400">
           <li className='flex justify-center items-center'>

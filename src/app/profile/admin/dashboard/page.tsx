@@ -9,7 +9,6 @@ const DashboardPage = async () => {
     return redirect('/profile/user')
   }
 
-<<<<<<< HEAD
   return (
     <div>
       <div className="flex overflow-hidden bg-white">
@@ -615,9 +614,6 @@ const DashboardPage = async () => {
       </div>
     </div>
   )
-=======
-  return <div>DashboardPage</div>
->>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
 }
 
 export default DashboardPage

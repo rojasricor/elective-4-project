@@ -9,7 +9,7 @@ import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
 
 export default function FormSignUp (): React.ReactNode {
   const [termsAccepted, setTermsAccepted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [_isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
   const {

@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-=======
-import Title from '@/components/Title'
-import { Metadata } from 'next'
->>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
 import Image from 'next/image'
 import Link from 'next/link'
 import SigninForm from './SigninForm'
 import SignInGif from './gifs/signIn.gif'
-<<<<<<< HEAD
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth/next'
 import Title from '@/components/Title'
@@ -21,26 +15,14 @@ export default async function Signin () {
   } else if (session !== null && session?.user?.email === 'admin@gmail.com') {
     return redirect('/profile/admin')
   }
-=======
 
-export const metadata: Metadata = {
-  title: 'Finanzas Educativas | Iniciar Sesión'
-}
->>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
-
-export default function Signin() {
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 pb-12 lg:px-8 mb-10 py-20">
       <div className="sm:mx-auto sm:w-full sm:max-w-xl md:max-w-3xl">
-<<<<<<< HEAD
         <h2
           className="mt-3 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900"
         >
           Iniciar sesion en <Title text='¡Finanzas Educativas!' isTextStatic />
-=======
-        <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
-          Iniciar sesion en <Title text="¡Finanzas Educativas!" />
->>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
         </h2>
       </div>
       <div className="flex justify-center items-center gap-16 mt-4">
@@ -48,12 +30,7 @@ export default function Signin() {
           <Image width={400} height={400} src={SignInGif} alt="" />
         </div>
         <div className="border-b border-gray-900/10 pb-12 w-80">
-<<<<<<< HEAD
           <FormSignIn />
-=======
-          <SigninForm />
-
->>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
           <p className="mt-6 text-center text-gray-500">
             ¿No estás registrado?{' '}
             <Link

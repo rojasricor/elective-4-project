@@ -12,12 +12,6 @@ const oswald = Oswald({
   preload: false
 })
 
-<<<<<<< HEAD
-export const metadata = {
-  title: 'Finanzas Educativas | Home',
-  description: 'Educational for Finances',
-  keywords: 'Educacion, finanzas, enseñanzas, ahorro,'
-=======
 export const metadata: Metadata = {
   title: 'Finanzas Educativas | Bienvenidos',
   generator: 'Next JS',
@@ -26,7 +20,6 @@ export const metadata: Metadata = {
   description: pkg.description,
   keywords: pkg.keywords,
   authors: pkg.contributors
->>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
 }
 
 export default async function RootLayout({

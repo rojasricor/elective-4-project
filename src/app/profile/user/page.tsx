@@ -29,13 +29,7 @@ const ProfileUserPage = async () => {
           </div>
           <div className="relative">
             <h1 className="mb-5 sm:mb-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-<<<<<<< HEAD
               Bienvenido a <span className='text-[#79ad34]'>¡Finanzas Educativas!</span> <Title text='¡Finanzas Educativas!' isTextStatic={false} />
-=======
-              Bienvenido a{' '}
-              <span className="text-[#79ad34]">Finanzas Educativas</span>{' '}
-              <Title text="¡Finanzas Educativas!" />
->>>>>>> 07069aa1c8165d19f0d59dba3707981f06527eab
             </h1>
             <p className="text-lg leading-8 text-gray-600 text-left">
               Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
